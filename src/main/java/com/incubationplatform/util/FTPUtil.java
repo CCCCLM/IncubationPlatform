@@ -27,15 +27,31 @@ public class FTPUtil {
 
     }
 
-    public static boolean uploadFile(List<File> fileList) throws IOException {
+    public static boolean uploadCredentialFile(List<File> fileList) throws IOException {
         FTPUtil ftpUtil = new FTPUtil(ftpIp,21,ftpUser,ftpPass);
         logger.info("开始连接FTP服务器");
-        boolean result = ftpUtil.uploadFile("static/img",fileList);
+        boolean result = ftpUtil.uploadFile("static/credential",fileList);
         logger.info("开始连接FTP服务器，结束上传，上传结束：{ }");
         return result;
     }
 
-    private boolean uploadFile(String remotePath,List<File> fileList) throws IOException {
+    public static boolean uploadPostProjectFile(List<File> fileList) throws IOException {
+        FTPUtil ftpUtil = new FTPUtil(ftpIp,21,ftpUser,ftpPass);
+        logger.info("开始连接FTP服务器");
+        boolean result = ftpUtil.uploadFile("static/post-project",fileList);
+        logger.info("开始连接FTP服务器，结束上传，上传结束：{ }");
+        return result;
+    }
+
+    public static boolean uploadFile(List<File> fileList) throws IOException {
+        FTPUtil ftpUtil = new FTPUtil(ftpIp,21,ftpUser,ftpPass);
+        logger.info("开始连接FTP服务器");
+        boolean result = ftpUtil.uploadFile("img",fileList);
+        logger.info("开始连接FTP服务器，结束上传，上传结束：{ }");
+        return result;
+    }
+
+    private boolean  uploadFile(String remotePath,List<File> fileList) throws IOException {
         boolean uploaded = true;
         FileInputStream fis = null;
         if (connectServer(this.getIp(),this.port,this.user,this.pwd)){

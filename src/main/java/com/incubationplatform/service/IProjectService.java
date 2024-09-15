@@ -4,6 +4,8 @@ import com.incubationplatform.common.ServerResponse;
 import com.incubationplatform.pojo.Project;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -15,4 +17,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IProjectService extends IService<Project> {
 
     ServerResponse reviewProject(Integer projectId, Integer adminId, String opinion, Integer status);
+
+    public ServerResponse submitProject(Project project, List<String> team, List<String> teacherList);
+
+    public ServerResponse getProjectByStatus(Integer page,Integer status);
+
+    public ServerResponse getProjectDetail(String projectId);
 }

@@ -3,7 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -125,9 +125,9 @@ desired effect
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li   ><a href="studentadmin.html"><i class="fa fa-circle-o"></i> 学生管理</a></li>
-                    <li><a href="teacheradmin.html"><i class="fa fa-circle-o"></i>  教师管理</a></li>
-                    <li class="active" ><a href="manageradmin.html"><i class="fa fa-circle-o"></i>  管理员</a></li>
+                    <li><a href="studentadmin.html"><i class="fa fa-circle-o"></i> 学生管理</a></li>
+                    <!--<li><a href="teacheradmin.html"><i class="fa fa-circle-o"></i>  教师管理</a></li>-->
+                    <li class="active"><a href="manageradmin.html"><i class="fa fa-circle-o"></i>  管理员</a></li>
 
                 </ul>
                 <!-- Optionally, you can add icons to the links -->
@@ -139,11 +139,12 @@ desired effect
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li   ><a href="itemsadminn.html"><i class="fa fa-circle-o"></i> 立项项目</a></li>
-                    <li><a href="itemsoveradminn.html"><i class="fa fa-circle-o"></i>  结项项目</a></li>
-
+                    <!--<li><a href="itemsadminn.html"><i class="fa fa-circle-o"></i> 立项项目</a></li>-->
+                    <li><a href="立项审核.html"><i class="fa fa-circle-o"></i> 立项审核</a></li>
+                    <!--<li><a href="itemsoveradminn.html"><i class="fa fa-circle-o"></i>  结项项目</a></li>-->
+                    <li><a href="结项审核.html"><i class="fa fa-circle-o"></i> 结项审核</a></li>
                 </ul>
-            <li  ><a href="inform.html"><i class="fa fa-link"></i> <span>通知通告</span></a></li>
+            <li    ><a href="inform.html"><i class="fa fa-link"></i> <span>通知通告</span></a></li>
             <li ><a href="pswmofidyy.html"><i class="fa fa-link"></i> <span>修改密码</span></a></li>
 
             </li>
@@ -171,91 +172,144 @@ desired effect
         </section>
 
         <!-- Main content -->
-        <section class="content container-fluid" style="background-color: white">
+        <section class="content container-fluid" style="background-color: white" id="vue">
 
 
             <div class="box-body">
                 <div class="box-header">
-                    <input type="radio" >全部 &nbsp; <input type="radio" >已审核  &nbsp; <input type="radio" >待审核
-
-
+                    <input type="radio">全部 &nbsp; <input type="radio">已审核 &nbsp; <input type="radio">待审核
                     <div class="box-tools ">
                         <div class="input-group input-group-sm" style="width: 300px;">
                             <input type="text" name="table_search" class="form-control pull-right" placeholder="输入内容">
-
-
                             <div class="input-group-btn">
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-
                             </div>
                             <div class="input-group-btn">
-                                <button type="button" class="btn btn-default"><i class="fa fa-fw fa-plus-square-o"></i>增加用户</button>
-
+                                <button type="button" class="btn btn-default"  @click="add(-1)"><i class="fa fa-fw fa-plus-square-o"></i>增加用户
+                                </button>
                             </div>
-
                             <div class="input-group-btn">
-                                <button type="button" class="btn btn-default"> <i class="fa fa-fw fa-trash-o"></i>删除</button>
-
+                                <button type="button" class="btn btn-default"><i class="fa fa-fw fa-trash-o"></i>删除
+                                </button>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
                 <table class="table table-bordered">
-                    <tbody><tr>
-                        <th >序号</th>
-                        <th >用户名</th>
-                        <th >密码</th>
-                        <th >所属部门</th>
-                        <th >使用人</th>
-                        <th >拥有权限</th>
-                        <th >审核状态</th>
-                        <th >操作</th>
-
-                    </tr>
+                    <tbody>
                     <tr>
-                        <td>1.</td>
-                        <td>陈某</td><td>123</td>
-
-                        <td>信息技术与工程学院</td>
-                        <td>陈流芳</td>
-                        <td>二级学院管理</td>
-                        <td>已审核</td>
-                        <td>
-                            <a class="iconyan"> <i class="fa fa-fw fa-edit "></i>编辑</a>&nbsp; <a class="icontrash"><i class="fa fa-fw fa-trash-o "></i>删除</a></td>
-
+                        <th>帐号</th>
+                        <th>用户名</th>
+                        <!--<th>密码</th>-->
+                        <th>所属学院</th>
+                        <!--<th>使用人</th>-->
+                        <!--<th>拥有权限</th>-->
+                        <!--<th>审核状态</th>-->
+                        <th>操作</th>
                     </tr>
-
-
+                    <tr v-for="(item,index) in dataList">
+                        <td v-text="item.phone">1.</td>
+                        <td v-text="item.name">陈某</td>
+                        <!--<td>123</td>-->
+                        <td v-text="item.belongCollege">信息技术与工程学院</td>
+                        <!--<td>陈流芳</td>-->
+                        <!--<td>二级学院管理</td>-->
+                        <!--<td>已审核</td>-->
+                        <td>
+                            <a class="iconyan" @click="add(index)"> <i class="fa fa-fw fa-edit "></i>编辑</a>&nbsp;
+                            <a class="icontrash" @click="deleteModal(index)"><i class="fa fa-fw fa-trash-o "></i>删除</a>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
-
                 <div>
-
-
                 </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination center">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li @click="previous">
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li v-for="(item,index) in getPageList" @click="selectPage(item)" v-bind:class="{'active': isCurrentPage(item)}">
+                            <a href="#" v-text="item"></a>
+                        </li>
+                        <li @click="next">
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
 
 
-
             <!--------------------------
               | Your Page Content Here |
               -------------------------->
+            <!-- new modal -->
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="false">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">添加管理员</h4>
+                        </div>
+                        <form>
+                        <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="phone">帐号</label>
+                                    <input type="email" class="form-control" name='phone' id="phone" v-model="form.phone">
+                                </div>
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input class="form-control" id="name" name="name" v-model="form.name">
+                            </div>
+                                <div class="form-group">
+                                    <label for="password">密码</label>
+                                    <input type="password" class="form-control" id="password" name="password" v-model="form.password">
+                                </div>
+                            <div class="form-group">
+                                <label for="name">所属学院</label>
+                                <select class="form-control" v-model="form.belongCollege">
+                                    <option value="信息技术与工程学院">信息技术与工程学院</option>
+                                    <option value="金融学院">金融学院</option>
+                                    <option>电子商务学院</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" @click="save()">保存</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
+            <!-- delete modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title">删除</h4>
+                        </div>
+                        <div class="modal-body">
+                            是否删除该名成员？
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" @click="deleteAdmin()" data-dismiss="modal">删除</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -364,4 +418,219 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 </body>
+<script>
+    var baseUrl='/school/1';
+    window.onload = function (ev) {
+        new Vue({
+            el: '#vue',
+            data: {
+                currentIndex:-1,
+                form:{
+                    name:'1',
+                    phone:'1',
+                    belongCollege:'信息技术与工程学院',
+                    password:'1',
+                },
+                pagination: {
+                    currentPage: 1,
+                    totalPage: 1,
+                    size: 10,
+                    totalData: 10,
+                    showPages: 5
+                },
+                dataList: [{
+                    id: '1234',
+                    name: '何文海',
+                    phone: '18102857850',
+                    belongCollege: '信息技术与工程学院'
+                },
+                    {
+                        id: '1234',
+                        name: '何文海',
+                        phone: '18102857850',
+                        belongCollege: '信息技术与工程学院'
+                    }]
+            },
+            created:function(){
+                this.setServiceData(this.pagination.currentPage,this.pagination.size)
+            },
+            methods:{
+                //弹出管理员
+                add:function(index){
+                    this.currentIndex=index;
+                    if (index === -1) {
+                        // $("#password").show();
+                        $('.bd-example-modal-lg').modal("show");
+                        for (let i in this.form){
+                            this.form[i]=''
+                        }
+                    }else {
+                        let form=JSON.parse(JSON.stringify(this.dataList[index]));
+                        this.form=form;
+                        // $("#password").hide();
+                        $('.bd-example-modal-lg').modal("show");
+                    }
+                },
+                //保存管理员
+                save:function(){
+                    let that=this;
+                    let form=this.form;
+                    if(this.currentIndex===-1){
+                        $.ajax({
+                            url:baseUrl+'add_admin',
+                            type:"POST",
+                            contentType:"application/json;charset=UTF-8;",
+                            data:JSON.stringify(form),
+                            success:function (response) {
+                                console.log(response)
+                                if (response.net == 2000) {
+                                    location.reload()
+                                }
+                            }
+                        })
+                        // this.dataList.push(JSON.parse());
+                    }else {
+                        alert("修改管理员");
+                        let oldForm=this.dataList.splice(this.currentIndex, 1);
+                        oldForm.name=form.name;
+                        oldForm.phone=form.phone;
+                        oldForm.belongCollege=form.belongCollege;
+                        oldForm.password=form.password;
+                        $.ajax({
+                            url:baseUrl+'update_admin',
+                            type:"POST",
+                            contentType:"application/json;charset=UTF-8;",
+                            data:JSON.stringify(oldForm),
+                            success:function (response) {
+                                console.log(response)
+                                if (response.net == 2000) {
+                                    location.reload()
+                                }
+                            }
+                        });
+                    }
+                    $('.bd-example-modal-lg').modal("hide");
+                },
+                //弹出删除框
+                deleteModal:function(index){
+                    this.currentIndex=index;
+                    $('#myModal').modal("show");
+                },
+                //删除管理员
+                deleteAdmin:function(){
+                    let old=this.dataList.splice(this.currentIndex, 1);
+                    $.ajax({
+                        url:baseUrl+'delete_admin',
+                        type:"POST",
+                        contentType:"application/json;charset=UTF-8;",
+                        data:JSON.stringify(old),
+                        success:function (response) {
+                            console.log(response);
+                            if (response.net == 2000) {
+                                $('#myModal').modal("hide");
+                            }
+                        }
+                    });
+                },
+                // 上一页
+                previous: function () {
+                    let currentPage = parseInt(this.pagination.currentPage)
+                    if (currentPage > 1) {
+                        this.pagination.currentPage = currentPage - 1
+                        this.setServiceData(this.pagination.currentPage,this.pagination.size)
+                    }
+
+                },
+                // 下一页
+                next: function () {
+                    let currentPage = parseInt(this.pagination.currentPage)
+                    let totalPage = parseInt(this.pagination.totalPage)
+                    if (currentPage < totalPage) {
+                        this.pagination.currentPage = currentPage + 1
+                        this.setServiceData(this.pagination.currentPage,this.pagination.size)
+                    }
+                },
+                // 页数选择
+                selectPage: function (currentPage) {
+                    console.log(currentPage)
+                    this.pagination.currentPage = currentPage
+                    this.setServiceData(this.pagination.currentPage,this.pagination.size)
+                },
+
+                // 获取数据列表
+                setServiceData: function (current, size) {
+                    let that = this;
+                    $.ajax({
+                        url: baseUrl + "get_admin",
+                        method: 'GET',
+                        data: {
+                            current: current,
+                        },
+                        success: function (response) {
+                            let page = response.data;
+                            that.dataList = page.records;
+                            that.pagination.totalData = page.total;
+                            that.pagination.totalPage = page.pages;
+                        }
+                    })
+                }
+            },
+            computed: {
+                // 获取特定的列表页
+                getPageList: function () {
+                    let currentPage = parseInt(this.pagination.currentPage)
+                    let totalPage = this.pagination.totalPage;
+                    let pages = Math.floor((this.pagination.showPages) / 2)
+                    let leftSurplus = 0;
+                    let rightSurplus = 0;
+                    // 判断左边页数是否越界
+                    if (currentPage - pages - 1 < 0) {
+                        rightSurplus = Math.abs(currentPage - pages - 1)
+                    }
+                    //判断右边页数是否越界
+                    if (pages % 2 == 0) {
+                        if (currentPage + pages > totalPage) {
+                            leftSurplus = Math.abs(currentPage + pages - totalPage)
+                        }
+                    } else {
+                        if (currentPage + pages + 1 > totalPage) {
+                            leftSurplus = Math.abs(currentPage + pages + 1 - totalPage)
+                        }
+                    }
+                    let currentList = []
+                    for (let index = pages + leftSurplus; index > 0; index--) {
+                        if (currentPage - index > 0) {
+                            currentList.push(currentPage - index)
+                        }
+                    }
+                    currentList.push(currentPage)
+                    if (this.pagination.showPages % 2 == 0) {
+                        for (let index = 1; index < pages - 1 + rightSurplus; index++) {
+                            if (currentPage + index <= totalPage) {
+                                currentList.push(currentPage + index)
+                            }
+                        }
+                    } else {
+                        for (let index = 1; index <= pages + rightSurplus; index++) {
+                            if (currentPage + index <= totalPage) {
+                                currentList.push(currentPage + index)
+                            }
+                        }
+                    }
+                    return currentList;
+                },
+                // 判断是否当前页
+                isCurrentPage: function () {
+                    return function (index) {
+                        if (index == this.pagination.currentPage) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+            }
+        })
+    }
+</script>
 </html>

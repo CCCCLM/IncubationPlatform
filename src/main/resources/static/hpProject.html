@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{project.name}"></title>
+    <title th:text="${project.name}"></title>
     <link href="layui/css/layui.css" rel="stylesheet">
     <link href="css/Homepage/hpProject.css" rel="stylesheet">
     <link href="css/Homepage/all.css" rel="stylesheet">
@@ -18,19 +18,19 @@
 <div class="main-box" style="min-height: 664px;">
     <div class="blue-bg"></div>
     <div class="detail-container">
-        <h2 th:text="#{project.name}">创序软件工作室</h2>
+        <h2 th:text="${project.name}">创序软件工作室</h2>
         <p class="park-info">
 
                 <span >
-                    <span class="iconfont icon-leixing"></span>项目编号：<span th:text="#{project.id}">201810766001</span>
+                    <span class="iconfont icon-leixing"></span>项目编号：<span th:text="${project.id}">201810766001</span>
                 </span>
             &nbsp;&nbsp;
                 <span class="second">
-                    <span class="iconfont icon-didian"></span>项目等级：<span th:text="#{project.grade}">国家级</span>
+                    <span class="iconfont icon-didian"></span>项目等级：<span th:text="${project.grade}">国家级</span>
                 </span>
             &nbsp;&nbsp;
                 <span class="second">
-                    <span class="iconfont icon-leixing"></span>项目分类：<span th:text="#{project.classification}">创业实践</span>
+                    <span class="iconfont icon-leixing"></span>项目分类：<span th:text="${project.classification}">创业实践</span>
                 </span>
 
         </p>
@@ -53,12 +53,12 @@
             <p style="text-indent: 2em;">
                 <strong>立项时间</strong>　<br>
             </p>
-            <p style="text-indent: 2em;" th:text="#{project.changeTime}">2018年9月29日</p>
+            <p style="text-indent: 2em;" th:text="${project.changeTime}">2018年9月29日</p>
 
             <p style="text-indent: 2em;">
                 <strong>指导老师</strong>　<br>
             </p>
-            <p style="text-indent: 2em;" th:text="#{teacherList.name}">何文海 董志康</p>
+            <p style="text-indent: 2em;" th:text="${teacherList.name}">何文海 董志康</p>
 
             <p style="text-indent: 2em;">
                 <strong>项目成员</strong>　<br>

@@ -17,14 +17,14 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="message-title" th:text="#{message.title}">
+            <div class="message-title" th:text="${message.title}">
                 关于2019年大创项目立项通知
             </div>
             <div class="message-other">
-                作者：黄泳棋 <span th:text="${#message.author}"/> 来源：创客空间<span th:text="${#message.source}"/>  创建时间：2019/3/12<span th:text="${#message.createTime}"/>
+                作者：黄泳棋 <span th:text="${message.author}"/> 来源：创客空间<span th:text="${message.source}"/>  创建时间：2019/3/12<span th:text="${#message.createTime}"/>
             </div>
             <div class="message-contant">
-                <span th:text="#{message.content}"/>
+                <span th:text="${message.content}"/>
                 各单位：<br>
                 　　根据《广州商学院2018—2019学年校历》安排，本学年寒假从2019年1月14日至2月22日，共6周。现将有关事项通知如下：
                 　　<br>一、学生放假安排

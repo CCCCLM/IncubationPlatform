@@ -10,13 +10,18 @@ import java.io.Serializable;
  * </p>
  *
  * @author lcf
- * @since 2019-02-28
+ * @since 2019-03-28
  */
 public class File extends Model<File> {
 
     private static final long serialVersionUID = 1L;
 
     private String id;
+
+    /**
+     * 原文件名
+     */
+    private String originalName;
 
     /**
      * 名字
@@ -50,6 +55,14 @@ public class File extends Model<File> {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getOriginalName() {
+        return originalName;
+    }
+
+    public void setOriginalName(String originalName) {
+        this.originalName = originalName;
     }
 
     public String getName() {
@@ -94,6 +107,8 @@ public class File extends Model<File> {
 
     public static final String ID = "id";
 
+    public static final String ORIGINAL_NAME = "original_name";
+
     public static final String NAME = "name";
 
     public static final String CLASSIFICATION = "classification";
@@ -113,6 +128,7 @@ public class File extends Model<File> {
     public String toString() {
         return "File{" +
         "id=" + id +
+        ", originalName=" + originalName +
         ", name=" + name +
         ", classification=" + classification +
         ", url=" + url +

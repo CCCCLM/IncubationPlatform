@@ -10,7 +10,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author lcf
- * @since 2019-03-06
+ * @since 2019-03-28
  */
 public class Project extends Model<Project> {
 
@@ -174,6 +174,11 @@ public class Project extends Model<Project> {
     private String status;
 
     /**
+     * 团队id
+     */
+    private String teamId;
+
+    /**
      * 状态修改时间
      */
     private LocalDateTime changeTime;
@@ -192,16 +197,6 @@ public class Project extends Model<Project> {
      * 学科代码
      */
     private String subjectCode;
-
-    /**
-     * 获奖情况id
-     */
-    private Integer awardId;
-
-    /**
-     * qq
-     */
-    private String qq;
 
     /**
      * 结项时间
@@ -470,6 +465,14 @@ public class Project extends Model<Project> {
         this.status = status;
     }
 
+    public String getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(String teamId) {
+        this.teamId = teamId;
+    }
+
     public LocalDateTime getChangeTime() {
         return changeTime;
     }
@@ -500,22 +503,6 @@ public class Project extends Model<Project> {
 
     public void setSubjectCode(String subjectCode) {
         this.subjectCode = subjectCode;
-    }
-
-    public Integer getAwardId() {
-        return awardId;
-    }
-
-    public void setAwardId(Integer awardId) {
-        this.awardId = awardId;
-    }
-
-    public String getQq() {
-        return qq;
-    }
-
-    public void setQq(String qq) {
-        this.qq = qq;
     }
 
     public LocalDateTime getDeadlineTime() {
@@ -598,6 +585,8 @@ public class Project extends Model<Project> {
 
     public static final String STATUS = "status";
 
+    public static final String TEAM_ID = "team_id";
+
     public static final String CHANGE_TIME = "change_time";
 
     public static final String SUPPORT_SUM = "support_sum";
@@ -605,10 +594,6 @@ public class Project extends Model<Project> {
     public static final String IS_ENABLE = "is_enable";
 
     public static final String SUBJECT_CODE = "subject_code";
-
-    public static final String AWARD_ID = "award_id";
-
-    public static final String QQ = "qq";
 
     public static final String DEADLINE_TIME = "deadline_time";
 
@@ -654,12 +639,11 @@ public class Project extends Model<Project> {
         ", universityOpinionHandingTime=" + universityOpinionHandingTime +
         ", universityPostOpinionHandingTime=" + universityPostOpinionHandingTime +
         ", status=" + status +
+        ", teamId=" + teamId +
         ", changeTime=" + changeTime +
         ", supportSum=" + supportSum +
         ", isEnable=" + isEnable +
         ", subjectCode=" + subjectCode +
-        ", awardId=" + awardId +
-        ", qq=" + qq +
         ", deadlineTime=" + deadlineTime +
         ", createTime=" + createTime +
         "}";

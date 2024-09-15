@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/HomeMa/header.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/homema/header.js"></script>
+    <title>Document</title>
+    <style>
+        /* .center-img {
+            text-align: center;
+            padding-top: 99px;
+        }
+
+        .commit-button{
+            padding-top: 56px;
+        }*/
+
+        /* 按钮样式 */
+
+        .primary-button {
+            background-color: #0099cc;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .primary-button:hover {
+            background-color: #28B5D6
+        }
+
+        .dangerous-button {
+            background-color: #D9534F;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .dangerous-button:hover {
+            background-color: #C9302C
+        }
+
+        /* 大按钮样式 */
+
+        .large-button {
+            background-color: #0099cc;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 15px 80px;
+            cursor: pointer;
+        }
+
+        .large-button:hover {
+            background-color: #28B5D6
+        }
+
+        /* 表格样式 */
+
+        .table {
+            color: gray;
+            padding: 50px;
+            font-size: 0.9rem;
+        }
+
+        .table th {
+            background-color: #F2F2F2;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .table td,
+        th {
+            padding: .75em 1.5em;
+            text-align: left;
+        }
+
+        .table tbody tr:nth-child(2n) {
+            background-color: #f5f5f5;
+            transition: all .125s ease-in-out;
+        }
+
+
+        .text-right {
+            text-align: right;
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section class="top-navigation">
+            <div class="top-logo">
+                <b>首页管理</b>
+            </div>
+            <div class="top-menu">
+                返回
+            </div>
+        </section>
+        <section class="left-navigation">
+            <ul>
+                <li id="homeImg">首页大图</li>
+                <li id="approval">立项项目</li>
+                <li id="excellent">优秀项目</li>
+                <li id="notice">通知公告</li>
+                <li id="news">新闻动态</li>
+                <li id="meetting">创业年会</li>
+                <li id="studing">创业学习园地</li>
+                <li id="person">创业人物风采</li>
+            </ul>
+        </section>
+    </header>
+
+    <section>
+        <section class="center-content" id="app">
+            <div class="content">
+                <div class="table">
+                    <div class="text-right">
+                        <button class="large-button" @click="writeNewNotice(0)">添加新内容</button>
+                    </div>
+
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color: #fff;width: 100%">
+                        <thead>
+                            <tr>
+                                <th style="width: 40%">标题</th>
+                                <th style="width: 15%">视频地址</th>
+                                <th style="width: 15%">来源</th>
+                                <th style="width: 15%;">发布时间</th>
+                                <th style="width: 15%">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(notice,index) in noticeList">
+                                <td v-text="notice.title"></td>
+                                <td><a :href="notice.videoUrl" v-text="notice.vedioUrl"></a></td>
+                                <td v-text="notice.source"></td>
+                                <td v-text="notice.createTime"></td>
+                                <td>
+                                    <button class="primary-button" v-bind:data-index="index" @click="writeNewNotice(notice.id)">修改</button>
+                                    <button class="dangerous-button" data-toggle="modal" data-target="#myModal" v-bind:data-index="index">删除</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <nav aria-label="Page navigation" class="text-center">
+                    <ul class="pagination">
+                        <li @click="previous">
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li v-for="(item,index) in getPageList" @click="selectPage(item)" v-bind:class="{'active': isCurrentPage(item)}">
+                            <a href="#" v-text="item"></a>
+                        </li>
+                        <li @click="next">
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" v-on:click="deleteNotice">删除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+<script>
+    var baseUrl=""
+    var app = new Vue({
+        el: "#app",
+        data: {
+            pagination: {
+                currentPage: 1,
+                totalPage: 1,
+                size: 10,
+                totalData: 10,
+                showPages: 5
+            },
+            noticeList: []
+        },
+        created:function(){
+            this.setServiceData(this.pagination.currentPage,this.pagination.size)
+        },
+        methods: {
+            deleteNotice: function (event) {
+                let that=this;
+                let currentIndex = event.srcElement.dataset.index;
+                let message=this.noticeList[currentIndex]
+                $.ajax({
+                    url:baseUrl+"/management/del_video_message",
+                    method:'GET',
+                    data:{
+                        messageId:message.id
+                    },
+                    success:function(response){
+                        if(response.net==2000){
+                            that.noticeList.splice(currentIndex, 1)
+                            $('#myModal').modal("hide");
+                        }
+                    }
+                })
+            },
+            writeNewNotice: function (id) {
+                let url = window.location.href;
+                let params = url.split("?")[1].split("&")
+                let paramList = {}
+                for (let index = 0; index < params.length; index++) {
+                    param = params[index].split("=")
+                    paramList[param[0]] = param[1]
+                }
+                window.location.href = "new_metting.html?type=" + paramList["type"] + "&id=" + id
+            },
+            // 上一页
+            previous: function () {
+                let currentPage = parseInt(this.pagination.currentPage)
+                if (currentPage > 1) {
+                    this.pagination.currentPage = currentPage - 1
+                    this.setServiceData(this.pagination.currentPage,this.pagination.size)
+                }
+
+            },
+            // 下一页
+            next: function () {
+                let currentPage = parseInt(this.pagination.currentPage)
+                let totalPage = parseInt(this.pagination.totalPage)
+                if (currentPage < totalPage) {
+                    this.pagination.currentPage = currentPage + 1
+                    this.setServiceData(this.pagination.currentPage,this.pagination.size)
+                }
+            },
+            // 页数选择
+            selectPage: function (currentPage) {
+                console.log(currentPage)
+                this.pagination.currentPage = currentPage
+                this.setServiceData(this.pagination.currentPage,this.pagination.size)
+            },
+            // 获取数据列表
+            setServiceData: function (current, size) {
+                let that = this;
+                $.ajax({
+                    url: baseUrl + "/management/get_message",
+                    method: 'GET',
+                    data: {
+                        current: current,
+                        size: size,
+                        messageClassification: "创业年会",
+                    },
+                    success: function (response) {
+                        let page = response.data;
+                        that.noticeList = page.records;
+                        that.pagination.totalData = page.total;
+                        that.pagination.totalPage = page.pages;
+                    }
+                })
+            }
+        },
+        computed: {
+            // 获取特定的列表页
+            getPageList: function () {
+                let currentPage = parseInt(this.pagination.currentPage);
+                let totalPage = this.pagination.totalPage;
+                let pages = Math.floor((this.pagination.showPages) / 2);
+                let leftSurplus = 0;
+                let rightSurplus = 0;
+                // 判断左边页数是否越界
+                if (currentPage - pages - 1 < 0) {
+                    rightSurplus = Math.abs(currentPage - pages - 1)
+                }
+                //判断右边页数是否越界
+                if (pages % 2 == 0) {
+                    if (currentPage + pages > totalPage) {
+                        leftSurplus = Math.abs(currentPage + pages - totalPage)
+                    }
+                } else {
+                    if (currentPage + pages + 1 > totalPage) {
+                        leftSurplus = Math.abs(currentPage + pages + 1 - totalPage)
+                    }
+                }
+                let currentList = [];
+                for (let index = pages + leftSurplus; index > 0; index--) {
+                    if (currentPage - index > 0) {
+                        currentList.push(currentPage - index)
+                    }
+                }
+                currentList.push(currentPage);
+                if (this.pagination.showPages % 2 == 0) {
+                    for (let index = 1; index < pages - 1 + rightSurplus; index++) {
+                        if (currentPage + index <= totalPage) {
+                            currentList.push(currentPage + index)
+                        }
+                    }
+                } else {
+                    for (let index = 1; index <= pages + rightSurplus; index++) {
+                        if (currentPage + index <= totalPage) {
+                            currentList.push(currentPage + index)
+                        }
+                    }
+                }
+                return currentList;
+            },
+            // 判断是否当前页
+            isCurrentPage: function () {
+                return function (index) {
+                    if (index == this.pagination.currentPage) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        }
+    })
+</script>
+
+<script>
+    $('#myModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var currentIndex = button.data('index') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('删除')
+        modal.find('.modal-body').text("将删除该条数据，请谨慎操作！");
+        modal.find('.modal-footer .btn-primary')[0].dataset.index = currentIndex
+    })
+</script>
+
+</html>

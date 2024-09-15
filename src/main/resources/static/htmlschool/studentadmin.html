@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,32 +25,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to get the
-desired effect
-|---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+<div class="wrapper" id="vue">
 
     <!-- Main Header -->
     <header class="main-header">
@@ -125,8 +101,8 @@ desired effect
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li  class="active"   ><a href="studentadmin.html"><i class="fa fa-circle-o"></i> 学生管理</a></li>
-                    <li><a href="teacheradmin.html"><i class="fa fa-circle-o"></i>  教师管理</a></li>
+                    <li class="active"><a href="studentadmin.html"><i class="fa fa-circle-o"></i> 学生管理</a></li>
+                    <!--<li><a href="teacheradmin.html"><i class="fa fa-circle-o"></i>  教师管理</a></li>-->
                     <li><a href="manageradmin.html"><i class="fa fa-circle-o"></i>  管理员</a></li>
 
                 </ul>
@@ -139,11 +115,12 @@ desired effect
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li   ><a href="itemsadminn.html"><i class="fa fa-circle-o"></i> 立项项目</a></li>
-                    <li><a href="itemsoveradminn.html"><i class="fa fa-circle-o"></i>  结项项目</a></li>
-
+                    <!--<li><a href="itemsadminn.html"><i class="fa fa-circle-o"></i> 立项项目</a></li>-->
+                    <li><a href="立项审核.html"><i class="fa fa-circle-o"></i> 立项审核</a></li>
+                    <!--<li><a href="itemsoveradminn.html"><i class="fa fa-circle-o"></i>  结项项目</a></li>-->
+                    <li><a href="结项审核.html"><i class="fa fa-circle-o"></i> 结项审核</a></li>
                 </ul>
-            <li ><a href="inform.html"><i class="fa fa-link"></i> <span>通知通告</span></a></li>
+            <li    ><a href="inform.html"><i class="fa fa-link"></i> <span>通知通告</span></a></li>
             <li ><a href="pswmofidyy.html"><i class="fa fa-link"></i> <span>修改密码</span></a></li>
 
             </li>
@@ -161,7 +138,6 @@ desired effect
         <section class="content-header">
             <h1 class="ziti">
               学生管理
-
             </h1>
             <h5>
               管理学生用户、对学生用户进行增删改查
@@ -175,75 +151,74 @@ desired effect
 
 
             <div class="box-body">
-                <div class="box-header">
-                    <input type="radio" >全部 &nbsp; <input type="radio" >已审核  &nbsp; <input type="radio" >待审核
+                <!--<div class="box-header">-->
+                    <!--<input type="radio" style="visibility: hidden">全部 &nbsp;<input type="radio" >已审核  &nbsp; <input type="radio" >待审核-->
 
 
-                    <div class="box-tools ">
-                        <div class="input-group input-group-sm" style="width: 300px;">
-                            <input type="text" name="table_search" class="form-control pull-right" placeholder="输入内容">
+                    <!--<div class="box-tools ">-->
+                        <!--<div class="input-group input-group-sm" style="width: 300px;">-->
+                            <!--<input type="text" name="table_search" class="form-control pull-right" placeholder="输入内容">-->
 
 
-                            <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                            <!--<div class="input-group-btn">-->
+                                <!--<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>-->
 
-                            </div>
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-default"><i class="fa fa-fw fa-plus-square-o"></i>增加用户</button>
+                            <!--</div>-->
+                            <!--<div class="input-group-btn">-->
+                                <!--<button type="button" class="btn btn-default"><i class="fa fa-fw fa-plus-square-o"></i>增加用户</button>-->
 
-                            </div>
+                            <!--</div>-->
 
-                            <div class="input-group-btn">
-                                <button type="button" class="btn btn-default"> <i class="fa fa-fw fa-trash-o"></i>删除</button>
+                            <!--<div class="input-group-btn">-->
+                                <!--<button type="button" class="btn btn-default"> <i class="fa fa-fw fa-trash-o"></i>删除</button>-->
 
-                            </div>
+                            <!--</div>-->
 
-                        </div>
+                        <!--</div>-->
 
-                    </div>
-                </div>
+                    <!--</div>-->
+                <!--</div>-->
                 <table class="table table-bordered">
                     <tbody><tr>
                         <th >序号</th>
                         <th >用户名</th>
-                        <th >密码</th>
                         <th >学号</th>
                         <th >所在学院</th>
-                        <th >审核状态</th>
+                        <th >手机号</th>
                         <th >操作</th>
-
                     </tr>
-                    <tr>
-                        <td>1.</td>
-                        <td>创序工作室</td>
-                        <td>123</td>
-                        <td>201602020220</td>
-                        <td>信息技术与工程学院</td>
-                        <td>已审核</td>
+                    <tr v-for="(data,index) in dataList">
+                        <td v-text="index+1"></td>
+                        <td v-text="data.name">创序工作室</td>
+                        <td v-text="data.studentId">201602020220</td>
+                        <td v-text="data.belongCollege">信息技术与工程学院</td>
+                        <td v-text="data.phone">18102857850</td>
                         <td>
-                            <a class="iconyan"> <i class="fa fa-fw fa-edit "></i>编辑</a>&nbsp; <a class="icontrash"><i class="fa fa-fw fa-trash-o "></i>删除</a></td>
-
+                            <!--<a class="iconyan"> <i class="fa fa-fw fa-edit "></i>编辑</a>&nbsp; -->
+                            <a class="icontrash" data-toggle="modal" data-target="#myModal" :data-index="index"><i class="fa fa-fw fa-trash-o"></i>删除</a></td>
                     </tr>
-
-
                     </tbody>
                 </table>
-
-<div>
-
-
+<div style="display: flex;justify-content: center">
+    <nav aria-label="Page navigation" class="text-center">
+        <ul class="pagination">
+            <li @click="previous">
+                <a  href="javascript:void (0)" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li v-for="(item,index) in getPageList" @click="selectPage(item)" v-bind:class="{'active': isCurrentPage(item)}">
+                <a  href="javascript:void (0)" v-text="item"></a>
+            </li>
+            <li @click="next">
+                <a href="javascript:void (0)" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination center">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
-                </nav>
+
             </div>
 
 
@@ -331,7 +306,6 @@ desired effect
                             Report panel usage
                             <input type="checkbox" class="pull-right" checked>
                         </label>
-
                         <p>
                             Some information about this general settings option
                         </p>
@@ -346,6 +320,27 @@ desired effect
     <!-- Add the sidebar's background. This div must be placed
     immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" v-on:click="deleteData">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- ./wrapper -->
 
@@ -362,4 +357,156 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 </body>
+<script>
+        var baseUrl="";
+        new Vue({
+            el:'#vue',
+            data:{
+                pagination: {
+                    currentPage: 1,
+                    totalPage: 1,
+                    size: 10,
+                    totalData: 10,
+                    showPages: 5
+                },
+                dataList:[{name:"路人甲",studentId:201606110066,phone:1810285750,email:"1427600836@qq.com",belongUniversity:"广州商学院",belongCollege:"信息技术与工程学院",grade:"2016",specialty:"软件工程",qq:"14276",clazz:1,isEnable:1},
+                    {name:"路人甲",studentId:201606110066,phone:1810285750,email:"1427600836@qq.com",belongUniversity:"广州商学院",belongCollege:"信息技术与工程学院",grade:"2016",specialty:"软件工程",qq:"14276",clazz:1,isEnable:1},
+                    {name:"路人甲",studentId:201606110066,phone:1810285750,email:"1427600836@qq.com",belongUniversity:"广州商学院",belongCollege:"信息技术与工程学院",grade:"2016",specialty:"软件工程",qq:"14276",clazz:1,isEnable:1}]
+            },
+            created:function(){
+                this.setServiceData(this.pagination.currentPage,this.pagination.size)
+            },
+            methods:{
+                // 删除数据
+                deleteData: function (event) {
+                    debugger;
+                    let that=this;
+                    let currentIndex = event.srcElement.dataset.index;
+                    let data=this.dataList[currentIndex];
+                    console.log(currentIndex);
+                    $.ajax({
+                        url:baseUrl+"/school/manage/student/del",
+                        method:'GET',
+                        data:{
+                            studentId:data.id
+                        },
+                        success:function(response){
+                            if(response.net==2000){
+                                that.noticeList.splice(currentIndex, 1);
+                                $('#myModal').modal("hide");
+                            }
+                        }
+                    })
+                },
+                // 上一页
+                previous: function () {
+                    let currentPage = parseInt(this.pagination.currentPage)
+                    if (currentPage > 1) {
+                        this.pagination.currentPage = currentPage - 1
+                        this.setServiceData(this.pagination.currentPage,this.pagination.size)
+                    }
+                },
+                // 下一页
+                next: function () {
+                    let currentPage = parseInt(this.pagination.currentPage)
+                    let totalPage = parseInt(this.pagination.totalPage)
+                    if (currentPage < totalPage) {
+                        this.pagination.currentPage = currentPage + 1
+                        this.setServiceData(this.pagination.currentPage,this.pagination.size)
+                    }
+                },
+                // 页数选择
+                selectPage: function (currentPage) {
+                    console.log(currentPage)
+                    this.pagination.currentPage = currentPage
+                    this.setServiceData(this.pagination.currentPage,this.pagination.size)
+                },
+                // 获取数据列表
+                setServiceData: function (current, size) {
+                    let that = this;
+                    $.ajax({
+                        url: baseUrl + "/school/manage/student/list",
+                        method: 'GET',
+                        data: {
+                            page: current,
+                        },
+                        success: function (response) {
+                            let page = response.data;
+                            that.noticeList = page.records;
+                            that.pagination.totalData = page.total;
+                            that.pagination.totalPage = page.pages;
+                        }
+                    })
+                }
+            },
+            computed: {
+                // 获取特定的列表页
+                getPageList: function () {
+                    let currentPage = parseInt(this.pagination.currentPage);
+                    let totalPage = this.pagination.totalPage;
+                    let pages = Math.floor((this.pagination.showPages) / 2);
+                    let leftSurplus = 0;
+                    let rightSurplus = 0;
+                    // 判断左边页数是否越界
+                    if (currentPage - pages - 1 < 0) {
+                        rightSurplus = Math.abs(currentPage - pages - 1)
+                    }
+                    //判断右边页数是否越界
+                    if (pages % 2 == 0) {
+                        if (currentPage + pages > totalPage) {
+                            leftSurplus = Math.abs(currentPage + pages - totalPage)
+                        }
+                    } else {
+                        if (currentPage + pages + 1 > totalPage) {
+                            leftSurplus = Math.abs(currentPage + pages + 1 - totalPage)
+                        }
+                    }
+                    let currentList = [];
+                    for (let index = pages + leftSurplus; index > 0; index--) {
+                        if (currentPage - index > 0) {
+                            currentList.push(currentPage - index)
+                        }
+                    }
+                    currentList.push(currentPage);
+                    if (this.pagination.showPages % 2 == 0) {
+                        for (let index = 1; index < pages - 1 + rightSurplus; index++) {
+                            if (currentPage + index <= totalPage) {
+                                currentList.push(currentPage + index)
+                            }
+                        }
+                    } else {
+                        for (let index = 1; index <= pages + rightSurplus; index++) {
+                            if (currentPage + index <= totalPage) {
+                                currentList.push(currentPage + index)
+                            }
+                        }
+                    }
+                    return currentList;
+                },
+                // 判断是否当前页
+                isCurrentPage: function () {
+                    return function (index) {
+                        if (index == this.pagination.currentPage) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+                }
+            }
+        });
+</script>
+
+<script>
+    $('#myModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var currentIndex = button.data('index'); // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this);
+        modal.find('.modal-title').text('删除');
+        modal.find('.modal-body').text("将删除该条数据，请谨慎操作！");
+        modal.find('.modal-footer .btn-primary')[0].dataset.index = currentIndex
+    })
+</script>
 </html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../css/HomeMa/header.css">
+    <script type="text/javascript" src="../js/homema/header.js"></script>
+    <title>Document</title>
+
+    <style>
+        .content {
+            overflow-y: auto;
+            width: calc(100% - var(--left-nav) + 80px);
+            height: 100%;
+            right: 0;
+            position: absolute;
+        }
+
+        /* .center-img {
+            text-align: center;
+            padding-top: 99px;
+        }
+
+        .commit-button{
+            padding-top: 56px;
+        }*/
+
+        /* 按钮样式 */
+
+        .primary-button {
+            background-color: #0099cc;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .primary-button:hover {
+            background-color: #28B5D6
+        }
+
+        .dangerous-button {
+            background-color: #D9534F;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .dangerous-button:hover {
+            background-color: #C9302C
+        }
+
+        /* 大按钮样式 */
+
+        .large-button {
+            background-color: #0099cc;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 15px 80px;
+            cursor: pointer;
+        }
+
+        .large-button:hover {
+            background-color: #28B5D6
+        }
+
+        /* 表格样式 */
+
+        .table {
+            color: gray;
+            padding: 50px;
+            font-size: 0.9rem;
+        }
+
+        .table th {
+            background-color: #F2F2F2;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .table td,
+        th {
+            padding: .75em 1.5em;
+            text-align: left;
+        }
+
+        .table tbody tr:nth-child(2n) {
+            background-color: #f5f5f5;
+            transition: all .125s ease-in-out;
+        }
+
+
+        .text-right {
+            text-align: right;
+            padding: 10px 0px;
+        }
+
+        .left-content {
+            height: calc(100vh - var(--top-nav));
+            overflow: hidden;
+            width: calc(var(--left-nav) - 80px);
+            position: absolute;
+            background-color: #EAEDF1;
+        }
+
+        .left-content ul {
+            list-style: none;
+            padding: 0;
+            width: calc(100% + 20px);
+            margin: 0;
+            float: left;
+            height: 100%;
+            overflow-y: auto;
+            /* background-color: #252A2f; */
+            font-size: 0.9rem;
+        }
+
+        .left-content li {
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            box-sizing: border-box;
+            align-items: center;
+            cursor: pointer;
+            /* color: white; */
+            /* border-top: #192129 1px solid; */
+        }
+
+        .left-content li:hover {
+            background-color: #F4F6F8;
+            color: #05A4BD;
+        }
+
+        .select-content {
+            background-color: #FFFFFF
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section class="top-navigation">
+            <div class="top-logo">
+                <b>首页管理</b>
+            </div>
+            <div class="top-menu">
+                返回
+            </div>
+        </section>
+        <section class="left-navigation">
+            <ul>
+                <li id="homeImg">首页大图</li>
+                <li id="approval">立项项目</li>
+                <li id="excellent">优秀项目</li>
+                <li id="notice">通知公告</li>
+                <li id="news">新闻动态</li>
+                <li id="meetting">创业年会</li>
+                <li id="studing">创业学习园地</li>
+                <li id="person">创业人物风采</li>
+            </ul>
+        </section>
+    </header>
+
+
+    <section>
+        <section class="center-content" id="app">
+            <div class="left-content">
+                <!-- 内容左侧导航栏 -->
+                <div class="" style="height: 100%;">
+                    <ul>
+                        <li id="chuanxin" @click="changeTab(0)" v-bind:class="{'select-content' : selectTab[0]}">创新训练</li>
+                        <li id="chuanye" @click="changeTab(1)" v-bind:class="{'select-content' : selectTab[1]}">创业训练</li>
+                        <li id="shijian" @click="changeTab(2)" v-bind:class="{'select-content' : selectTab[2]}">创业实践</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="table">
+                    <div class="text-right">
+                        <button class="large-button" data-toggle="modal" @click="newProject" data-target=".bd-example-modal-lg">添加新项目</button>
+                    </div>
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color: #fff;width: 100%">
+                        <thead>
+                            <tr>
+                                <th style="width:5%">顺序</th>
+                                <th style="width: 35%">项目名</th>
+                                <th style="width: 15%;">立项等级</th>
+                                <th style="width: 15%;">负责人</th>
+                                <th style="width: 15%">立项时间</th>
+                                <th style="width: 15%;">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(item,index) in approvalList">
+                                <td v-text="item.sort"></td>
+                                <td v-text="item.name"></td>
+                                <td v-text="item.grade"></td>
+                                <td v-text="item.students"></td>
+                                <td v-text="item.createTime"></td>
+                                <td>
+                                    <button class="primary-button" @click="topProject(index)">置顶</button>
+                                    <button class="dangerous-button" data-toggle="modal" data-target="#myModal">移除</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" @click="removeProject">确定</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- new modal -->
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">添加新项目</h4>
+                        </div>
+                        <div class="modal-body table">
+                            <table style="width: 100%">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 40%;">项目名</th>
+                                        <th style="width: 15%">立项等级</th>
+                                        <th style="width: 15%">负责人</th>
+                                        <th style="width:15%">时间</th>
+                                        <th style="width: 15%">操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(item,index) in selectList">
+                                        <td v-text="item.name"></td>
+                                        <td v-text="item.grade"></td>
+                                        <td v-text="item.students"></td>
+                                        <td v-text="item.createTime"></td>
+                                        <td>
+                                            <button class="primary-button" @click="selectNew(index)">选择</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li @click="previous">
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li v-for="(item,index) in getPageList" @click="selectPage(item)" v-bind:class="{'active': isCurrentPage(item)}">
+                                        <a href="#" v-text="item"></a>
+                                    </li>
+                                    <li @click="next">
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+
+<script>
+    console.log(window.location.href)
+    var app = new Vue({
+        el: "#app",
+        data: {
+            selectTab: [false, false, false],
+            selectList: [],
+            pagination: {
+                currentPage: 1,
+                totalPage: 10,
+                size: 10,
+                totalData: 100,
+                showPages: 5
+            },
+            approvalList: [{ "id": "123456780", "sort": 1, "name": "创序软件工作室", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+            { "id": "123456780", "sort": 2, "name": "创序软件工作室1", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+            { "id": "123456780", "sort": 3, "name": "创序软件工作室2", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+            { "id": "123456780", "sort": 4, "name": "创序软件工作室3", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+            { "id": "123456780", "sort": 5, "name": "创序软件工作室4", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+            { "id": "123456780", "sort": 6, "name": "创序软件工作室5", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+            { "id": "123456780", "sort": 7, "name": "创序软件工作室6", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+            { "id": "123456780", "sort": 8, "name": "创序软件工作室7", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+            { "id": "123456780", "sort": 9, "name": "创序软件工作室8", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" }]
+        },
+        methods: {
+            // 改变右侧导航栏
+            changeTab: function (currentIndex) {
+                console.log(currentIndex)
+                for (let index = 0; index < this.selectTab.length; index++) {
+                    if (index == currentIndex) {
+                        this.selectTab.splice(index, 1, true);
+                        if (currentIndex == 0) {
+                            console.log("111")
+                            this.approvalList = [{ "id": "123456780", "sort": 1, "name": "这是个虚拟项目", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 2, "name": "这是个虚拟项目", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 3, "name": "这是个虚拟项目1", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 4, "name": "这是个虚拟项目2", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 5, "name": "这是个虚拟项目3", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 6, "name": "这是个虚拟项目4", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 7, "name": "这是个虚拟项目5", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 8, "name": "这是个虚拟项目6", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 9, "name": "这是个虚拟项目7", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" }]
+                        } else if (currentIndex == 1) {
+                            console.log("222")
+                            this.approvalList = [{ "id": "123456780", "sort": 1, "name": "创序软件工作室", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 2, "name": "创序软件工作室1", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 3, "name": "创序软件工作室2", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 4, "name": "创序软件工作室3", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 5, "name": "创序软件工作室4", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 6, "name": "创序软件工作室5", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 7, "name": "创序软件工作室6", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 8, "name": "创序软件工作室7", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 9, "name": "创序软件工作室8", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" }]
+                        } else if (currentIndex == 2) {
+                            console.log("333")
+                            this.approvalList = [{ "id": "123456780", "sort": 1, "name": "狂拽酷炫吊炸天", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 2, "name": "狂拽酷炫吊炸天", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 3, "name": "狂拽酷炫吊炸天1", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 4, "name": "狂拽酷炫吊炸天2", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 5, "name": "狂拽酷炫吊炸天3", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 6, "name": "狂拽酷炫吊炸天4", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 7, "name": "狂拽酷炫吊炸天5", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 8, "name": "狂拽酷炫吊炸天6", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                            { "id": "123456780", "sort": 9, "name": "狂拽酷炫吊炸天7", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" }]
+                        }
+                    } else {
+                        this.selectTab.splice(index, 1, false)
+                    }
+                }
+            },
+            // 移除操作
+            removeProject: function (event) {
+                let currentIndex = event.srcElement.dataset.index;
+                this.approvalList.splice(currentIndex, 1);
+                for (let index = 0; index < this.approvalList.length; index++) {
+                    this.approvalList[index].sort = index + 1;
+                }
+                $('#myModal').modal("hide");
+            },
+            // 置顶操作
+            topProject: function (index) {
+                let approval = this.approvalList[index];
+                this.approvalList.splice(index, 1);
+                this.approvalList.unshift(approval);
+                for (let index = 0; index < this.approvalList.length; index++) {
+                    this.approvalList[index].sort = index + 1;
+                }
+            },
+            // 添加新项目
+            newProject: function () {
+                this.selectList = [{ "id": "123456780", "sort": 1, "name": "待选", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                { "id": "123456780", "sort": 2, "name": "待选1", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                { "id": "123456780", "sort": 3, "name": "待选2", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                { "id": "123456780", "sort": 4, "name": "待选3", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                { "id": "123456780", "sort": 5, "name": "待选4", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                { "id": "123456780", "sort": 6, "name": "待选5", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                { "id": "123456780", "sort": 7, "name": "待选6", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                { "id": "123456780", "sort": 8, "name": "待选7", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" },
+                { "id": "123456780", "sort": 9, "name": "待选8", "grade": "国家级", "students": "黄泳棋", "createTime": "2104-11-11" }]
+            },
+            // 选择新添加操作
+            selectNew: function (index) {
+                let select = this.selectList[index];
+                select.sort = this.approvalList.length + 1;
+                this.approvalList.push(select)
+                $('.bd-example-modal-lg').modal("hide");
+            },
+            // 上一页
+            previous: function () {
+                let currentPage = parseInt(this.pagination.currentPage)
+                if (currentPage > 1) {
+                    this.pagination.currentPage = currentPage - 1
+                }
+
+            },
+            // 下一页
+            next: function () {
+                let currentPage = parseInt(this.pagination.currentPage)
+                let totalPage = parseInt(this.pagination.totalPage)
+                if (currentPage < totalPage) {
+                    this.pagination.currentPage = currentPage + 1
+                }
+            },
+            // 页数选择
+            selectPage: function (currentPage) {
+                console.log(currentPage)
+                this.pagination.currentPage = currentPage
+            },
+            // 解析url参数
+            analysisUrl: function () {
+                let url = window.location.href;
+                let params = url.split("?")[1].split("&")
+                let paramList = {}
+                for (let index = 0; index < params.length; index++) {
+                    param = params[index].split("=")
+                    paramList[param[0]] = param[1]
+                }
+                return paramList;
+            }
+        },
+        computed: {
+            // 获取特定的列表页
+            getPageList: function () {
+                let currentPage = parseInt(this.pagination.currentPage)
+                let totalPage = this.pagination.totalPage;
+                let pages = Math.floor((this.pagination.showPages) / 2)
+                let leftSurplus = 0;
+                let rightSurplus = 0;
+                // 判断左边页数是否越界
+                if (currentPage - pages - 1 < 0) {
+                    rightSurplus = Math.abs(currentPage - pages - 1)
+                }
+                //判断右边页数是否越界
+                if (pages % 2 == 0) {
+                    if (currentPage + pages > totalPage) {
+                        leftSurplus = Math.abs(currentPage + pages - totalPage)
+                    }
+                } else {
+                    if (currentPage + pages + 1 > totalPage) {
+                        leftSurplus = Math.abs(currentPage + pages + 1 - totalPage)
+                    }
+                }
+                let currentList = []
+                for (let index = pages + leftSurplus; index > 0; index--) {
+                    if (currentPage - index > 0) {
+                        currentList.push(currentPage - index)
+                    }
+                }
+                currentList.push(currentPage)
+                if (this.pagination.showPages % 2 == 0) {
+                    for (let index = 1; index < pages - 1 + rightSurplus; index++) {
+                        if (currentPage + index <= totalPage) {
+                            currentList.push(currentPage + index)
+                        }
+                    }
+                } else {
+                    for (let index = 1; index <= pages + rightSurplus; index++) {
+                        if (currentPage + index <= totalPage) {
+                            currentList.push(currentPage + index)
+                        }
+                    }
+                }
+                return currentList;
+            },
+            // 判断是否当前页
+            isCurrentPage: function () {
+                return function (index) {
+                    if (index == this.pagination.currentPage) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+
+        }
+    })
+</script>
+
+
+<script>
+    $('#myModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var currentIndex = button.data('index') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('删除')
+        modal.find('.modal-body').text("将删除该条数据，请谨慎操作！");
+        modal.find('.modal-footer .btn-primary')[0].dataset.index = currentIndex
+    })
+</script>
+
+</html>

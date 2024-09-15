@@ -18,6 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <link href="../layui/css/layui.css" rel="stylesheet">
     <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
@@ -33,6 +34,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <style>
+        .table td{
+            text-align: center;
+            vertical-align: middle;
+        }
+
+    </style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -123,7 +132,6 @@ desired effect
             <li><a href="stuteaminformation.html"><i class="fa fa-link"></i> <span>团队信息</span></a></li>
 
 
-
         </ul>
         <!-- /.sidebar-menu -->
         </section>
@@ -161,8 +169,9 @@ desired effect
                         <div class="timeline-item">
                             <span class="time"> </span>
 
-                            <h3 class="timeline-header no-border"><a href="#">报名须知</a> </h3>
+                            <h3 class="timeline-header no-border"><a href="#">报名须知</a></h3>
 
+                        </div>
                     </li>
                     <!-- /.timeline-label -->
                     <!-- timeline item -->
@@ -176,129 +185,318 @@ desired effect
 
                             <h3 class="timeline-header no-border" style="color: #616142">填写申报书</h3>
                             <div class="timeline-body">
-                                <form class="form-horizontal">
+                                <form class="form-horizontal input_noborder"  align="center" style= "margin: 0cm 0cm 0pt; text-align: left">
                                     <div class="box-body">
-                                        <table class="table table-bordered">
+                                        <table class="table table-bordered ">
                                             <tbody>
                                             <tr>
-                                                <td style="width: 200px">项目名称</td>
+                                                <td style="width: 200px;vertical-align: middle">项目名称</td>
                                                 <td colspan="6">
-                                                    <div><input class="form-control inputcls" size="16" type="text" value="" id="inputer" name="inputer"></div></td></td>
+                                                    <input class="form-control inputcls" size="16" type="text"
+                                                           value="" id="inputer" name="name" placeholder="项目名称">
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>项目类型</td>
-                                                <td colspan="6">创新训练</td>
+                                                <td style="vertical-align: middle">项目类型</td>
+                                                <td colspan="6">
+                                                    <select name="classification" style="width: 100%;height: 35px">
+                                                        <option value="创新训练项目" name="classification" selected="" style="font-size: 14px">创新训练项目
+                                                        </option>
+                                                        <option value="创业训练项目">创业训练项目</option>
+                                                        <option value="创业实践项目">创业实践项目</option>
+                                                    </select>
+                                                </td>
 
-
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2">负责人</td>
-                                                <td colspan="2">姓名</td>
-                                                <td colspan="2">年级专业</td>
-                                                <td colspan="2">联系电话</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td colspan="2">黄泳琪</td>
-                                                <td colspan="2">16年软工2班</td>
-
-                                                <td colspan="2">13415551221</td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="4">成员</td>
-                                                <td colspan="2">黄宏娜</td>
-                                                <td colspan="2">16年软工2班</td>
-                                                <td colspan="2">12346254525</td>
 
                                             </tr>
                                             <tr>
+                                                <td rowspan="2" style="vertical-align: middle">负责人</td>
+                                                <td colspan="2" style="vertical-align: middle">姓名</td>
+                                                <td colspan="2" style="vertical-align: middle">年级专业</td>
+                                                <td colspan="2" style="vertical-align: middle">专业</td>
+                                                <td colspan="2" style="vertical-align: middle">联系电话</td>
 
-                                                <td colspan="2">郭木凯</td>
-                                                <td colspan="2">16年软工2班</td>
-                                                <td colspan="2">12346254525</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="2">
+                                                    <input class="form-control inputcls" size="16" type="text"
+                                                           name="name" value="" placeholder="姓名">
+                                                </td>
+                                                <td colspan="2">
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                                value="" placeholder="年级专业">
+                                                </td>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                                value="" placeholder="联系电话">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="4" style="vertical-align: middle">成员</td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="姓名">
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="年级专业">
+                                                    </div>
+                                                </td>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="联系电话">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="姓名">
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="年级专业">
+                                                    </div>
+                                                </td>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="联系电话">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="姓名">
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="年级专业">
+                                                    </div>
+                                                </td>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="联系电话">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="姓名">
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="年级专业">
+                                                    </div>
+                                                </td>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="联系电话">
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="4" style="vertical-align: middle">项目组成员近3年<br></br>获奖及成果情况</td>
+                                                <td colspan="2" style="vertical-align: middle"> 获奖者</td>
+                                                <td colspan="2" style="vertical-align: middle">奖励、成果名称及级别</td>
+                                                <td colspan="2" style="vertical-align: middle">颁发单位及时间</td>
 
                                             </tr>
                                             <tr>
 
-                                                <td colspan="2">郑超凡</td>
-                                                <td colspan="2" >16年软工2班</td>
-                                                <td colspan="2">12346254525</td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="获奖者">
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="奖励、成果名称及级别">
+                                                    </div>
+                                                </td>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="颁发单位及时间">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="获奖者">
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="奖励、成果名称及级别">
+                                                    </div>
+                                                </td>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="颁发单位及时间">
+                                                    </div>
+                                                </td>
 
                                             </tr>
                                             <tr>
 
-                                                <td colspan="2">杨力铭</td>
-                                                <td colspan="2">16年软工2班</td>
-                                                <td colspan="2">12346254525</td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="获奖者">
+                                                    </div>
+                                                </td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="奖励、成果名称及级别">
+                                                    </div>
+                                                </td>
+
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="颁发单位及时间">
+                                                    </div>
+                                                </td>
 
                                             </tr>
                                             <tr>
-                                                <td rowspan="4">项目组成员近3年<br></br>获奖及成果情况</td>
-                                                <td colspan="2"> 获奖者</td>
-                                                <td colspan="2">奖励、成果名称及级别</td>
-                                                <td colspan="2">颁发单位及时间</td>
+                                                <td rowspan="2" style="vertical-align: middle">指导老师</td>
+
+                                                <td style="width: 100px;vertical-align: middle">姓名</td>
+                                                <td style="width: 220px">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="姓名">
+                                                    </div>
+                                                </td>
+                                                <td style="width: 100px;vertical-align: middle">职务</td>
+                                                <td style="width: 200px">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="职务">
+                                                    </div>
+                                                </td>
+                                                <td style="width: 100px;vertical-align: middle">学位</td>
+                                                <td style="width: 200px">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="学位">
+                                                    </div>
+                                                </td>
 
                                             </tr>
                                             <tr>
-                                                <td colspan="2" style="height: 30px"> </td>
-                                                <td colspan="2" style="height: 30px"></td>
-                                                <td colspan="2" style="height: 30px"></td>
+                                                <td style="vertical-align: middle">学院</td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="学院">
+                                                    </div>
+                                                </td>
+                                                <td style="vertical-align: middle">联系电话</td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="联系电话">
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="2" style="vertical-align: middle">校外老师</td>
+
+                                                <td style="width: 100px;vertical-align: middle">姓名</td>
+                                                <td style="width: 220px">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="姓名">
+                                                    </div>
+                                                </td>
+                                                <td style="width: 100px;vertical-align: middle">职务</td>
+                                                <td style="width: 200px">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="职务">
+                                                    </div>
+                                                </td>
+                                                <td style="width: 100px;vertical-align: middle">学位</td>
+                                                <td style="width: 200px">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="学位">
+                                                    </div>
+                                                </td>
 
                                             </tr>
                                             <tr>
-                                                <td colspan="2" style="height: 30px" > </td>
-                                                <td colspan="2" style="height: 30px"></td>
-                                                <td colspan="2" style="height: 30px"></td>
-
+                                                <td style="vertical-align: middle">学院</td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="学院">
+                                                    </div>
+                                                </td>
+                                                <td style="vertical-align: middle">联系电话</td>
+                                                <td colspan="2">
+                                                    <div>
+                                                        <input class="form-control inputcls" size="16" type="text"
+                                                               value="" placeholder="联系电话">
+                                                    </div>
+                                                </td>
                                             </tr>
-                                            <tr>
-                                                <td colspan="2"  style="height: 30px"> </td>
-                                                <td colspan="2" style="height: 30px"></td>
-                                                <td colspan="2" style="height: 30px"></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2">指导老师</td>
-
-                                                <td>姓名</td>
-                                                <td style="width: 120px" ></td>
-                                                <td style="width: 70px;">职务</td>
-                                                <td style="width: 120px"></td>
-                                                <td>学位</td>
-                                                <td style="width: 120px"></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>学院</td>
-                                                <td colspan="2"></td>
-                                                <td>联系电话</td>
-                                                <td colspan="2"></td>
-                                            </tr>
-                                            <tr>
-                                                <td rowspan="2">校外老师</td>
-
-                                                <td>姓名</td>
-                                                <td style="width: 120px" ></td>
-                                                <td style="width: 70px;">职务</td>
-                                                <td style="width: 120px"></td>
-                                                <td>学位</td>
-                                                <td style="width: 120px"></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>学院</td>
-                                                <td colspan="2"></td>
-                                                <td>联系电话</td>
-                                                <td colspan="2"></td>
-                                            </tr>
-                                            </tbody></table>
+                                            </tbody>
+                                        </table>
                                     </div>
+                                </form>
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
 
-                                <a href="studentone.html">   <button type="button" class="btn btn-info">上一页</button></a>
-                                <a href="studentfour.html">    <button type="button" class="btn btn-info pull-right " >下一页</button></a>
+                                <a href="studentone.html">
+                                    <button type="button" class="btn btn-info">上一页</button>
+                                </a>
+                                <a href="studentfour.html">
+                                    <button type="button" class="btn btn-info pull-right ">下一页</button>
+                                </a>
                             </div>
                             <!-- /.box-footer -->
                             </form>
@@ -313,7 +511,7 @@ desired effect
                         <i class="fa  bg-aqua">3</i>
                         <div class="timeline-item">
 
-                            <h3 class="timeline-header no-border"><a href="#">完成</a> </h3>
+                            <h3 class="timeline-header no-border"><a href="#">完成</a></h3>
                         </div>
 
                     </li>

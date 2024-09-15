@@ -56,4 +56,8 @@ public class StudentServiceImpl extends ServiceImpl<StudentDao, Student> impleme
             return ServerResponse.createByErrorMessage("修改失败，未知错误");
         }
     }
+
+    public ServerResponse getAllStudents(){
+        return null;
+    }
 }

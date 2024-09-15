@@ -10,7 +10,7 @@ import java.io.Serializable;
  * </p>
  *
  * @author lcf
- * @since 2019-02-28
+ * @since 2019-03-28
  */
 public class Student extends Model<Student> {
 
@@ -65,6 +65,11 @@ public class Student extends Model<Student> {
      * 专业
      */
     private String specialty;
+
+    /**
+     * qq
+     */
+    private Integer qq;
 
     /**
      * 班级
@@ -169,6 +174,14 @@ public class Student extends Model<Student> {
         this.specialty = specialty;
     }
 
+    public Integer getQq() {
+        return qq;
+    }
+
+    public void setQq(Integer qq) {
+        this.qq = qq;
+    }
+
     public String getClazz() {
         return clazz;
     }
@@ -229,6 +242,8 @@ public class Student extends Model<Student> {
 
     public static final String SPECIALTY = "specialty";
 
+    public static final String QQ = "qq";
+
     public static final String CLAZZ = "clazz";
 
     public static final String IS_MAIN = "is_main";
@@ -241,7 +256,7 @@ public class Student extends Model<Student> {
 
     @Override
     protected Serializable pkVal() {
-        return null;
+        return this.id;
     }
 
     @Override
@@ -257,6 +272,7 @@ public class Student extends Model<Student> {
         ", belongCollege=" + belongCollege +
         ", grade=" + grade +
         ", specialty=" + specialty +
+        ", qq=" + qq +
         ", clazz=" + clazz +
         ", isMain=" + isMain +
         ", roleId=" + roleId +

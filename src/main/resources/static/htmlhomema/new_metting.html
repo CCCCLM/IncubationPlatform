@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../css/HomeMa/header.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/homema/header.js"></script>
+    <title>Document</title>
+    <!-- 富文本 -->
+    <script src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+    <style>
+        /* .center-img {
+            text-align: center;
+            padding-top: 99px;
+        }
+
+        .commit-button{
+            padding-top: 56px;
+        }*/
+
+        /* 按钮样式 */
+
+        .primary-button {
+            background-color: #0099cc;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .primary-button:hover {
+            background-color: #28B5D6
+        }
+
+        .dangerous-button {
+            background-color: #D9534F;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .dangerous-button:hover {
+            background-color: #C9302C
+        }
+
+        /* 大按钮样式 */
+
+        .large-button {
+            background-color: #0099cc;
+            outline: none;
+            border: none;
+            color: white;
+            padding: 15px 80px;
+            cursor: pointer;
+        }
+
+        .large-button:hover {
+            background-color: #28B5D6
+        }
+
+        /* 表格样式 */
+
+        .table {
+            color: gray;
+            padding: 50px;
+            font-size: 0.9rem;
+        }
+
+        .table th {
+            background-color: #F2F2F2;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .table td,
+        th {
+            padding: .75em 1.5em;
+            text-align: left;
+        }
+
+        .table tbody tr:nth-child(2n) {
+            background-color: #f5f5f5;
+            transition: all .125s ease-in-out;
+        }
+
+
+        .text-right {
+            text-align: right;
+            padding: 10px 0px;
+        }
+
+        .title {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding-bottom: 20px
+        }
+
+        .title span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .title input {
+            font-size: large;
+            box-sizing: border-box;
+            padding-left: 16px;
+            padding-right: 22px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background: transparent;
+            border: 1px solid #0099cc;
+            flex-grow: 1
+        }
+
+        .title input:last-child{
+            flex-grow: 0;
+            width: 15%;
+            border-left: none;
+        }
+
+
+
+        .inn-content {
+            width: 100%;
+            display: flex;
+        }
+
+        .inn-content span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .inn-content #editor {
+            flex-grow: 1
+        }
+
+        .finish {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section class="top-navigation">
+            <div class="top-logo">
+                <b>首页管理</b>
+            </div>
+            <div class="top-menu">
+                返回
+            </div>
+        </section>
+        <section class="left-navigation">
+            <ul>
+                <li id="homeImg">首页大图</li>
+                <li id="approval">立项项目</li>
+                <li id="excellent">优秀项目</li>
+                <li id="notice">通知公告</li>
+                <li id="news">新闻动态</li>
+                <li id="meetting">创业年会</li>
+                <li id="studing">创业学习园地</li>
+                <li id="person">创业人物风采</li>
+            </ul>
+        </section>
+    </header>
+
+
+
+
+    <section>
+        <section class="center-content" id="app">
+            <div class="content">
+                <div style="width: 100%;padding: 40px 60px;box-sizing: border-box">
+                    <div class="title">
+                        <span class="font">标题：</span>
+                        <input v-model="notice.title" />
+                        <input placeholder="来源处" v-model="notice.source"/>
+                    </div>
+                    <div class="title">
+                        <span class="font">播址：</span>
+                        <input v-model="notice.vedioUrl" />
+                        <span style="display: none"></span>
+                    </div>
+                    <div class="inn-content">
+                        <span>内容：</span>
+                        <div id="editor" ref="content">
+                            <p>欢迎使用
+                                <b>wangEditor</b> 富文本编辑器</p>
+                        </div>
+                        <textarea v-model="notice.content" id="text1" style="width:0; height:0;display: none"></textarea>
+                    </div>
+                    <div class="finish">
+                        <button class="large-button" @click="submitNotice">保存</button>
+                        <button class="dangerous-button">取消</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+
+<script>
+    var baseUrl=""
+    console.log(window.location.href)
+    var app = new Vue({
+        el: "#app",
+        data: {
+            notice: {
+                "id": "",
+                "title": "",
+                "content": "",
+                "source": "",
+                vedioUrl:""
+            }
+        },
+        created:function(){
+            let that=this;
+            let paramList = this.analysisUrl();
+            if (paramList["id"]!=0) {
+                $.ajax({
+                    url:baseUrl+"/management/video_message_detail",
+                    method:"GET",
+                    data:{
+                        messageId:paramList["id"]
+                    },
+                    success:function (response) {
+                        if (response.net == 2000) {
+                            that.notice=response.data
+                            editor.txt.html(response.data.content)
+                        }
+                    }
+                })
+            }
+        },
+        methods: {
+            submitNotice: function () {
+                let that=this;
+                let url="";
+                let notice = JSON.parse(JSON.stringify(this.notice));
+                notice.content = editor.txt.html();
+                console.log(notice.id);
+                if (notice.id != "0") {
+                    url=baseUrl+"/management/update_video_message"
+                }else {
+                    url=baseUrl+"/management/add_video_message"
+                }
+                $.ajax({
+                    url:url,
+                    type:"POST",
+                    contentType:"application/json;charset=UTF-8;",
+                    data:JSON.stringify(notice),
+                    success:function (response) {
+                        console.log(response)
+                        if (response.net == 2000) {
+                            let paramList = that.analysisUrl();
+                            window.location.href = paramList["type"]+".html?type=" + paramList["type"]
+                        }
+                    }
+                })
+            },
+            analysisUrl: function () {
+                let url = window.location.href;
+                let params = url.split("?")[1].split("&")
+                let paramList = {}
+                for (let index = 0; index < params.length; index++) {
+                    param = params[index].split("=")
+                    paramList[param[0]] = param[1]
+                }
+                return paramList;
+            }
+        }
+    })
+</script>
+
+<script type="text/javascript">
+    var E = window.wangEditor;
+    var editor = new E('#editor');
+    var $text1 = $('#text1');
+    // 或者 var editor = new E( document.getElementById('editor') )
+    // 下面两个配置，使用其中一个即可显示“上传图片”的tab。但是两者不要同时使用！！！
+    // editor.customConfig.uploadImgShowBase64 = true   // 使用 base64 保存图片
+    editor.customConfig.uploadImgServer = '/upload' ; // 上传图片到服务器
+    editor.customConfig.showLinkImg = false;
+    editor.customConfig.menus = [
+        'head',  // 标题
+        'bold',  // 粗体
+        'fontSize',  // 字号
+        'fontName',  // 字体
+        'italic',  // 斜体
+        'underline',  // 下划线
+        'strikeThrough',  // 删除线
+        'foreColor',  // 文字颜色
+        'link',  // 插入链接
+        'list',  // 列表
+        'justify',  // 对齐方式
+        'quote',  // 引用
+        'image',  // 插入图片
+        'table',  // 表格
+        'video',  // 插入视频
+        'undo',  // 撤销
+        'redo'  // 重复
+    ]
+    editor.create()
+</script>
+
+</html>

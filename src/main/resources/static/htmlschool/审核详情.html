@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>学校端</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect. -->
+    <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <style>
+        /* 表格样式 */
+
+        .table {
+            color: gray;
+            /*padding: 50px;*/
+            font-size: 0.9rem;
+        }
+
+        .table th {
+            background-color: #F2F2F2;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .table td,
+        th {
+            padding: .75em 1.5em;
+            text-align: left;
+        }
+
+        .table tbody tr:nth-child(2n) {
+            background-color: #f5f5f5;
+            transition: all .125s ease-in-out;
+        }
+    </style>
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a href="../index2.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>A</b>LT</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>学校端</b></span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+
+                    <!-- /.messages-menu -->
+
+                    <!-- Notifications Menu -->
+
+                    <!-- Tasks Menu -->
+
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- The user image in the navbar-->
+                            <span class="hidden-xs">你好，Alexander Pierce</span>
+                        </a>
+
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i>退出</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+
+
+        <!-- Sidebar user panel (optional) -->
+
+
+        <!-- search form (Optional) -->
+
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree" style="margin-top:2px">
+
+            <!-- Optionally, you can add icons to the links -->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-edit"></i> <span>用户管理</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li   ><a href="studentadmin.html"><i class="fa fa-circle-o"></i> 学生管理</a></li>
+                    <!--<li><a href="teacheradmin.html"><i class="fa fa-circle-o"></i>  教师管理</a></li>-->
+                    <li><a href="manageradmin.html"><i class="fa fa-circle-o"></i>  管理员</a></li>
+
+                </ul>
+                <!-- Optionally, you can add icons to the links -->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-edit"></i> <span>项目管理</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <!--<li><a href="itemsadminn.html"><i class="fa fa-circle-o"></i> 立项项目</a></li>-->
+                    <li class="active"><a href="立项审核.html"><i class="fa fa-circle-o"></i> 立项审核</a></li>
+                    <!--<li><a href="itemsoveradminn.html"><i class="fa fa-circle-o"></i>  结项项目</a></li>-->
+                    <li><a href="结项审核.html"><i class="fa fa-circle-o"></i> 结项审核</a></li>
+                </ul>
+            <li    ><a href="inform.html"><i class="fa fa-link"></i> <span>通知通告</span></a></li>
+            <li ><a href="pswmofidyy.html"><i class="fa fa-link"></i> <span>修改密码</span></a></li>
+
+            </li>
+
+
+        </ul>
+        <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1 class="ziti">
+                项目管理/立项审核/详情
+
+            </h1>
+            <h5>
+                立项项目审核
+            </h5>
+            <hr>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content container-fluid" style="background-color: white" id="vue">
+
+            <div class="box-body">
+                <table class="table table-bordered ">
+                    <tbody>
+                    <tr>
+                        <td style="width: 200px;vertical-align: middle">项目名称</td>
+                        <td colspan="6">
+                            <div>
+                                <!--<input class="form-control inputcls" size="16" type="text"-->
+                                <!--value="" id="inputer" name="inputer" placeholder="项目名称">-->
+                                <span v-text="data.project.name"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: middle">项目类型</td>
+                        <td colspan="6">
+                            <span v-text="data.project.classification"></span>
+                        </td>
+
+
+                    </tr>
+                    <tr>
+                        <td :rowspan="getMain(true).length+1" style="vertical-align: middle">负责人</td>
+                        <td colspan="2" style="vertical-align: middle">姓名</td>
+                        <td colspan="2" style="vertical-align: middle">年级专业</td>
+                        <td colspan="2" style="vertical-align: middle">联系电话</td>
+                    </tr>
+                    <tr v-for="item in getMain(true)">
+                        <td colspan="2">
+                            <div>
+                                <span v-text="item.name"></span>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div>
+                                <span v-text="item.grade+item.specialty"></span>
+                            </div>
+                        </td>
+
+                        <td colspan="2">
+                            <div>
+                                <span v-text="item.phone"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td :rowspan="getMain(false).length" style="vertical-align: middle">成员</td>
+                        <template v-for="item in getMain(false).slice(0,1)">
+                            <td colspan="2">
+                                <div>
+                                    <span v-text="item.name"></span>
+                                </div>
+                            </td>
+                            <td colspan="2">
+                                <div>
+                                    <span v-text="item.grade+item.specialty"></span>
+                                </div>
+                            </td>
+
+                            <td colspan="2">
+                                <div>
+                                    <span v-text="item.phone"></span>
+                                </div>
+                            </td>
+                        </template>
+                    </tr>
+                    <tr v-for="item in getMain(false).slice(1)">
+
+                        <td colspan="2">
+                            <div>
+                                <span v-text="item.name"></span>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div>
+                                <span v-text="item.grade+item.specialty"></span>
+                            </div>
+                        </td>
+
+                        <td colspan="2">
+                            <div>
+                                <span v-text="item.phone"></span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td :rowspan="data.awards.length+1" style="vertical-align: middle">项目组成员近3年<br></br>获奖及成果情况</td>
+                        <td colspan="2" style="vertical-align: middle"> 获奖者</td>
+                        <td colspan="2" style="vertical-align: middle">奖励、成果名称及级别</td>
+                        <td colspan="2" style="vertical-align: middle">颁发单位及时间</td>
+
+                    </tr>
+                    <tr v-for="item in data.awards">
+
+                        <td colspan="2">
+                            <div>
+                                <span v-text="item.winner"></span>
+                            </div>
+                        </td>
+                        <td colspan="2">
+                            <div>
+                                <span v-text="item.awardName"></span>
+                            </div>
+                        </td>
+
+                        <td colspan="2">
+                            <div>
+                                <span v-text="item.issuedUnit"></span>
+                                &nbsp;&nbsp;&nbsp;
+                                <span v-text="item.issuedTime"></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td :rowspan="data.teachers.length+1" style="vertical-align: middle">指导老师</td>
+
+                        <td style="vertical-align: middle">姓名</td>
+                        <td style="vertical-align: middle">职务</td>
+                        <td style="vertical-align: middle">学位</td>
+                        <td style="vertical-align: middle">联系电话</td>
+                        <td style="vertical-align: middle" colspan="2">学院</td>
+                    </tr>
+                    <tr v-for="item in data.teachers">
+                        <td style="vertical-align: middle" v-text="item.name"></td>
+                        <td style="vertical-align: middle" v-text="item.post"></td>
+                        <td style="vertical-align: middle" v-text="item.degree"></td>
+                        <td style="vertical-align: middle" v-text="item.phone"></td>
+                        <td style="vertical-align: middle" colspan="2" v-text="item.belongCollege"></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" style="vertical-align: middle">校外老师</td>
+
+                        <td style="width: 100px;vertical-align: middle">姓名</td>
+                        <td style="width: 220px">
+                            <div>
+                                <input class="form-control inputcls" size="16" type="text"
+                                       value="" placeholder="姓名">
+                            </div>
+                        </td>
+                        <td style="width: 100px;vertical-align: middle">职务</td>
+                        <td style="width: 200px">
+                            <div>
+                                <input class="form-control inputcls" size="16" type="text"
+                                       value="" placeholder="职务">
+                            </div>
+                        </td>
+                        <td style="width: 100px;vertical-align: middle">学位</td>
+                        <td style="width: 200px">
+                            <div>
+                                <input class="form-control inputcls" size="16" type="text"
+                                       value="" placeholder="学位">
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: middle">学院</td>
+                        <td colspan="2">
+                            <div>
+                                <input class="form-control inputcls" size="16" type="text"
+                                       value="" placeholder="学院">
+                            </div>
+                        </td>
+                        <td style="vertical-align: middle">联系电话</td>
+                        <td colspan="2">
+                            <div>
+                                <input class="form-control inputcls" size="16" type="text"
+                                       value="" placeholder="联系电话">
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div style="width: 100%;padding: 10px;border:1px solid #999999eb;color: gray;border-top: none"
+                     v-for="(value,key) in enums">
+                    <h4 v-text="value"></h4>
+                    <div style="" v-text="getContent(key)">
+                    </div>
+                </div>
+                <div style="width: 100%;padding: 10px;border:1px solid #999999eb;color: gray;border-top: none">
+                    <h4>申请人承诺</h4>
+                    <div style="" v-text="data.project.applicantPromiseDetail"></div>
+                    <div style="text-align: right;margin-top: 50px;">
+                        <span v-text="data.project.applicantPromiseHandler"></span>
+                        <br>
+                        <span v-text="data.project.applicantPromisetHandingTime"></span>
+                    </div>
+                </div>
+                <div style="width: 100%;padding: 10px;border:1px solid #999999eb;color: gray;border-top: none">
+                    <h4>学院立项意见</h4>
+                    <div style="" v-text="data.project.universityOpinionDetail"></div>
+                    <div style="text-align: right;margin-top: 50px;">
+                        <span v-text="data.project.collegeOpinionDetail">郭木凯</span>
+                        <br>
+                        <span v-text="data.project.collegeOpinionHandlerTime">2016-8-8</span>
+                    </div>
+                </div>
+                <div style="width: 100%;padding: 10px;border:1px solid #999999eb;color: gray;border-top: none">
+                    <h4>学校立项意见</h4>
+                    <div style="">
+
+                        <textarea  style="width:100%;height: 200px;" v-model="result" v-if="isNext"></textarea>
+                        <template v-else>
+                        <div style="" v-text="data.project.universityOpinionDetail"></div>
+                        <div style="text-align: right;margin-top: 50px;">
+                            <span v-text="data.project.collegeOpinionDetail">郭木凯</span>
+                            <br>
+                            <span v-text="data.project.collegeOpinionHandlerTime">2016-8-8</span>
+                        </div>
+                        </template>
+                    </div>
+                    <!--<div style="text-align: right;margin-top: 50px;">-->
+                    <!--<span>郭木凯</span>-->
+                    <!--<br>-->
+                    <!--<span>2016-8-8</span>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div>
+                <h4>
+                    附件
+                </h4>
+                <div style="">
+                    图片1 图片2 结项申报书
+                </div>
+            </div>
+            <div style="text-align: right;padding: 29px 0">
+                <button @click="commitResult(true)" class="btn">通过</button>
+                <button @click="commitResult(false)" class="btn btn-danger">不通过</button>
+            </div>
+
+            <!--------------------------
+              | Your Page Content Here |
+              -------------------------->
+
+        </section>
+
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <div>
+
+    </div>
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Home tab content -->
+            <div class="tab-pane active" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                <p>Will be 23 on April 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+                <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:;">
+                            <h4 class="control-sidebar-subheading">
+                                Custom Template Design
+                                <span class="pull-right-container">
+                    <span class="label label-danger pull-right">70%</span>
+                  </span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+            </div>
+            <!-- /.tab-pane -->
+            <!-- Stats tab content -->
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+            <!-- /.tab-pane -->
+            <!-- Settings tab content -->
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">General Settings</h3>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Report panel usage
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Some information about this general settings option
+                        </p>
+                    </div>
+                    <!-- /.form-group -->
+                </form>
+            </div>
+            <!-- /.tab-pane -->
+        </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+    immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+</body>
+<script>
+    var baseUrl='/school/11/';
+    window.onload = function (ev) {
+        var app = new Vue({
+            el: '#vue',
+            data: {
+                result: '',
+                enums: {
+                    background: '项目背景',
+                    introduce: '项目简介',
+                    advantage: '项目优势',
+                    marketAnalysis: '项目市场分析',
+                    technicalFactor: '项目技术因素',
+                    businessModel: '商业模式',
+                    financialAnalysis: '项目财务分析',
+                    riskAndConstraint: '风险预测及制约因素',
+                    planningAndVision: '发展规划和创业远景',
+                    fundAndBudget: '项目立项经费使用预算',
+                    expectedResult: '项目预期成果',
+                },
+                data: {
+                    project:{
+                        id: "123",
+                        matchId: "11",
+                        classification: "创业实践",
+                        grade: '国家级',
+                        introduce: '这是项目简介',
+                        background: '这是项目背景',
+                        advantage: '这是项目优势',
+                        marketAnalysis: '这是项目市场分析',
+                        technicalFactor: '这是项目技术因素',
+                        businessModel: '这是项目商业模式',
+                        financialAnalysis: '这是项目财务分析',
+                        riskAndConstraint: '这是风险预测及制约因素',
+                        planningAndVision: '这是发展规划和创业远景',
+                        fundAndBudget: '项目立项经费使用预算',
+                        expectedResult: '项目预期成果',
+                        collegeOpinionDetail: '学院立项意见详情',
+                        collegePostOpinionDetail: '学院结项意见详情',
+                        collegeOpinionHandler: '学院立项意见处理人',
+                        collegePostOpinionHandler: '学院结项意见处理人',
+                        collegeOpinionHandlerTime: '学院立项意见签名时间',
+                        collegePostOpinionHandlerTime: '学院结项意见签名时间',
+                        applicantPromiseDetail: '申请人承诺详情',
+                        applicantPromiseHandler: '申请人承诺处理者',
+                        applicantPromisetHandingTime: '申请人承诺处理时间',
+                        universityOpinionDetail: '学校立项意见详情',
+                        universityPostOpinionHandingTime: '学校结项意见处理时间',
+                        name: "创序软件工作室",
+                        status: "22",
+                        time: "2019-11-1"
+                    },
+                    members: [{
+                        name: "黄永琪",
+                        specialty: '软件工程',
+                        grade: '2016',
+                        phone: '18102857850',
+                        isMain: 1
+                    },
+                        {
+                            name: "郭木凯",
+                            specialty: '软件工程',
+                            grade: '2016',
+                            phone: '18102857850',
+                            isMain: 0
+                        },
+                        {
+                            name: "黄宏娜",
+                            specialty: '软件工程',
+                            grade: '2016',
+                            phone: '18102857850',
+                            isMain: 0
+                        }],
+                    awards: [{
+                        id: 1132,
+                        winner: '黄永琪',
+                        issuedUnit: '广州商学院',
+                        issuedTime: '2019-11-2',
+                        awardName: '蓝桥杯省赛一等奖',
+                    },
+                        {
+                            id: 113,
+                            winner: '黄永琪',
+                            issuedUnit: '广州商学院',
+                            issuedTime: '2019-11-2',
+                            awardName: '蓝桥杯省赛三等奖',
+                        }],
+                    teachers: [{
+                        id: "21",
+                        name: '何文海',
+                        phone: '12345679801',
+                        belongCollege: '信息技术与工程学院',
+                        post: '讲师',
+                        degree: '学士'
+                    },
+                        {
+                            id: "21",
+                            name: '董志康',
+                            phone: '12345679801',
+                            belongCollege: '信息技术与工程学院',
+                            post: '讲师',
+                            degree: '学士',
+                        }],
+                    files:[]
+                }
+            },
+            created: function () {
+                let that = this;
+                let paramList = this.analysisUrl();
+                if (paramList["id"]!==0) {
+                    $.ajax({
+                        url: baseUrl + "project_detail",
+                        method: 'GET',
+                        data: {
+                            projectId:paramList["id"]
+                        },
+                        success: function (response) {
+                            that.data = response.data;
+                        }
+                    })
+                }
+            },
+            methods: {
+                getContent(key) {
+                    return this.data.project[key];
+                },
+                commitResult(select) {
+                    if (this.result === '') {
+                        alert("请输入意见");
+                    } else {
+                        $.ajax({
+                            url:baseUrl + '',
+                        })
+                    }
+                }
+            },
+            computed: {
+                getMain() {
+                    return function (isMain) {
+                        let tempArr = this.data.members;
+                        let newArr = [];
+                        if (isMain) {
+                            for (let i = 0; i < tempArr.length; i++) {
+                                if (1 === tempArr[i].isMain) {
+                                    newArr.push(tempArr[i]);
+                                }
+                            }
+                        } else {
+                            for (let i = 0; i < tempArr.length; i++) {
+                                if (tempArr[i].isMain !== 1) {
+                                    newArr.push(tempArr[i]);
+                                }
+                            }
+                        }
+                        return newArr;
+                    }
+                },
+                isNext(){
+                    return function () {
+                        let data=this.data;
+                        if ('22'.eq(data.status)) {
+                            return true;
+                        }else {
+                            return false;
+                        }
+                    }
+                }
+            }
+        });
+    }
+</script>
+</html>

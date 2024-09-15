@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>学生端</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../dist/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <!--<link rel="stylesheet" href="../bower_components/Ionicons/css/ionicons.min.css">-->
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../dist/css/AdminLTE.min.css">
+    <link href="../layui/css/layui.css" rel="stylesheet">
+    <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+          page. However, you can choose any other skin. Make sure you
+          apply the skin class to the body tag so the changes take effect. -->
+    <link rel="stylesheet" href="../dist/css/skins/skin-blue.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <style>
+        .table td{
+            text-align: center;
+            vertical-align: middle;
+        }
+        .error{
+            color:red;
+        }
+    </style>
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+    <!-- Main Header -->
+    <header class="main-header">
+
+        <!-- Logo -->
+        <a href="../index2.html" class="logo">
+            <!-- mini logo for sidebar mini 50x50 pixels -->
+            <span class="logo-mini"><b>A</b>LT</span>
+            <!-- logo for regular state and mobile devices -->
+            <span class="logo-lg"><b>学生端</b></span>
+        </a>
+
+        <!-- Header Navbar -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <!-- Sidebar toggle button-->
+
+            <!-- Navbar Right Menu -->
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+
+                    <!-- /.messages-menu -->
+
+                    <!-- Notifications Menu -->
+
+                    <!-- Tasks Menu -->
+
+                    <!-- User Account Menu -->
+                    <li class="dropdown user user-menu">
+                        <!-- Menu Toggle Button -->
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <!-- The user image in the navbar-->
+                            <span class="hidden-xs">你好，Alexander Pierce</span>
+                        </a>
+
+                    </li>
+                    <!-- Control Sidebar Toggle Button -->
+                    <li>
+                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i>退出</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+
+        <!-- sidebar: style can be found in sidebar.less -->
+
+
+        <!-- Sidebar user panel (optional) -->
+
+
+        <!-- search form (Optional) -->
+
+        <!-- /.search form -->
+
+        <!-- Sidebar Menu -->
+        <ul class="sidebar-menu" data-widget="tree" style="margin-top:2px">
+
+            <!-- Optionally, you can add icons to the links -->
+            <li class="active"><a href="studentfirst.html"><i class="fa fa-link"></i> <span>报名</span></a></li>
+            <li><a href="stusubmit.html"><i class="fa fa-link"></i> <span>递交资料</span></a></li>
+            <li><a href="stuperinformation.html"><i class="fa fa-link"></i> <span>个人信息</span></a></li>
+            <li><a href="stuteaminformation.html"><i class="fa fa-link"></i> <span>团队信息</span></a></li>
+
+
+        </ul>
+        <!-- /.sidebar-menu -->
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1 class="ziti">
+                报名
+
+            </h1>
+            <h5>
+                报名规则：每个项目只需要报名一次，多次无效!
+            </h5>
+            <hr>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content container-fluid" style="background-color: white">
+
+
+            </span>
+
+            <div class="col-md-12">
+                <!-- The time line -->
+                <ul class="timeline">
+                    <!-- timeline time label -->
+                    <li>
+                        <i class="fa  bg-aqua">1</i>
+
+                        <div class="timeline-item">
+                            <span class="time"> </span>
+
+                            <h3 class="timeline-header no-border"><a href="#">报名须知</a></h3>
+
+                        </div>
+                    </li>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+                    <li>
+                        <i class="fa  bg-yellow">2</i>
+
+                        <div class="timeline-item">
+
+                            <h3 class="timeline-header no-border" style="color: #616142">填写申报书</h3>
+                            <div class="timeline-body">
+                                <form class="form-horizontal input_noborder" id="baoming"  align="center" style= "margin: 0cm 0cm 0pt; text-align: left">
+                                    <fieldset>
+                                    <div class="box-body">
+
+                                        <label for="projectName">项目名称：</label>
+                                        <input type="text" name="name" id="projectName" style="height: 30px;" required/>
+                                        <br>
+
+                                        <div class="selects">
+                                            <label>项目类别：</label>
+                                            <select id="classification" name="classification" style="height: 35px">
+                                               <option value="1" name="classification" selected="selected">创新训练项目
+                                                </option>
+                                                <option value="2">创业训练项目</option>
+                                                <option value="3">创业实践项目</option>
+                                            </select>
+                                        </div>
+
+
+                                        <div class="selects">
+                                            <label>负责人数：</label>
+                                            <select id="mainPeason" name="mainPeason" style="height: 35px">
+                                                <option value="1" name="mainPeason" selected="selected">1人
+                                                </option>
+                                                <option value="2" name="mainPeason">2人</option>
+                                            </select>
+                                        </div>
+                                        <div id="oneMainPeason">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td rowspan="4" style="vertical-align: middle">负责人信息</td>
+                                                    <td colspan="2" style="vertical-align: middle">姓名</td>
+                                                    <td colspan="2" style="vertical-align: middle">学校</td>
+                                                    <td colspan="2" style="vertical-align: middle">二级学院</td>
+                                                    <td colspan="2" style="vertical-align: middle">年级</td>
+                                                    <td colspan="2" style="vertical-align: middle">专业</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="name" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="belongUniversity" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls"
+                                                               size="16" type="text" name="belongCollege" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls  "
+                                                               size="16" type="text" name="grade" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="specialty" required/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="vertical-align: middle">班级</td>
+                                                    <td colspan="2" style="vertical-align: middle">学号</td>
+                                                    <td colspan="2" style="vertical-align: middle">手机号</td>
+                                                    <td colspan="2" style="vertical-align: middle">邮箱</td>
+                                                    <td colspan="2" style="vertical-align: middle">QQ号</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="grade" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="studentId" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="phone"  minlength="11" maxlength="11"  required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="email" name="email" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="qq" required/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div id="twoMainPeason" style="display: none;">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td rowspan="4" style="vertical-align: middle">第一负责人信息</td>
+                                                    <td colspan="2" style="vertical-align: middle">姓名</td>
+                                                    <td colspan="2" style="vertical-align: middle">学校</td>
+                                                    <td colspan="2" style="vertical-align: middle">二级学院</td>
+                                                    <td colspan="2" style="vertical-align: middle">年级</td>
+                                                    <td colspan="2" style="vertical-align: middle">专业</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="name" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="belongUniversity" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="belongCollege" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="grade" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="specialty" required/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="vertical-align: middle">班级</td>
+                                                    <td colspan="2" style="vertical-align: middle">学号</td>
+                                                    <td colspan="2" style="vertical-align: middle">手机号</td>
+                                                    <td colspan="2" style="vertical-align: middle">邮箱</td>
+                                                    <td colspan="2" style="vertical-align: middle">QQ号</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="grade" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="studentId" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="phone"  minlength="11" maxlength="11"  required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="email" name="email" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="qq" required/>
+                                                    </td>
+                                                </tr>
+                                                <tr></tr>
+                                                <tr>
+                                                    <td rowspan="4" style="vertical-align: middle">第二负责人信息</td>
+                                                    <td colspan="2" style="vertical-align: middle">姓名</td>
+                                                    <td colspan="2" style="vertical-align: middle">学校</td>
+                                                    <td colspan="2" style="vertical-align: middle">二级学院</td>
+                                                    <td colspan="2" style="vertical-align: middle">年级</td>
+                                                    <td colspan="2" style="vertical-align: middle">专业</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="name" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="belongUniversity" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="belongCollege" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="grade" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="specialty" required/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="vertical-align: middle">班级</td>
+                                                    <td colspan="2" style="vertical-align: middle">学号</td>
+                                                    <td colspan="2" style="vertical-align: middle">手机号</td>
+                                                    <td colspan="2" style="vertical-align: middle">邮箱</td>
+                                                    <td colspan="2" style="vertical-align: middle">QQ号</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="grade" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="studentId" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="phone"  minlength="11" maxlength="11"  required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="email" name="email" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="qq" required/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div class="selects">
+                                            <label>成员数目：</label>
+                                            <select id="peason" name="peason" style="height: 35px">
+                                                <option value="2" selected="selected" >2人</option>
+                                                <option value="3" >3人</option>
+                                                <option value="4" >4人</option>
+                                                <option value="5" >5人</option>
+                                                <option value="6" >6人</option>
+                                                <option value="7" >7人</option>
+                                            </select>
+                                        </div>
+                                        <div id="Peasons">
+                                            <table class="table table-bordered" id="people" style="display: none">
+                                                <tr>
+                                                    <td rowspan="4" id="peasonsFirstTd" style="vertical-align: middle">成员<br>信息</td>
+                                                    <td colspan="2" style="vertical-align: middle">姓名</td>
+                                                    <td colspan="2" style="vertical-align: middle">学校</td>
+                                                    <td colspan="2" style="vertical-align: middle">二级学院</td>
+                                                    <td colspan="2" style="vertical-align: middle">年级</td>
+                                                    <td colspan="2" style="vertical-align: middle">专业</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="name" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="belongUniversity" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="belongCollege" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="grade" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="specialty" required/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="vertical-align: middle">班级</td>
+                                                    <td colspan="2" style="vertical-align: middle">学号</td>
+                                                    <td colspan="2" style="vertical-align: middle">手机号</td>
+                                                    <td colspan="2" style="vertical-align: middle">邮箱</td>
+                                                    <td colspan="2" style="vertical-align: middle">QQ号</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="grade" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="studentId" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="phone" minlength="11" maxlength="11" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="email" name="email" required/>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls "
+                                                               size="16" type="text" name="qq" required/>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <label style="margin-top: 30px">项目组成员近3年获奖及成果情况(无可不作填写):</label>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="panel panel-info">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title">获奖者一</h3>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <label for="awardWinner1">获奖者姓名：</label>
+                                                    <input type="text" name="awardWinner1" id="awardWinner1" ><br>
+                                                    <label for="awardName1">奖项名称：</label>
+                                                    <input type="text" name="awardName1" id="awardName1"><br>
+                                                    <label for="awardTime1">获奖时间及颁发单位：</label>
+                                                    <input type="text" name="awardTime1" id="awardTime1">
+                                                </div>
+                                            </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">获奖者二</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <label for="awardWinner2">获奖者姓名：</label>
+                                                        <input type="text" name="awardWinner2" id="awardWinner2"><br>
+                                                        <label for="awardName2">奖项名称：</label>
+                                                        <input type="text" name="awardName2" id="awardName2"><br>
+                                                        <label for="awardTime2">获奖时间及颁发单位：</label>
+                                                        <input type="text" name="awardTime2" id="awardTime2">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title">获奖者三</h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <label for="awardWinner3">获奖者姓名：</label>
+                                                        <input type="text" name="awardWinner3" id="awardWinner3"><br>
+                                                        <label for="awardName3">奖项名称：</label>
+                                                        <input type="text" name="awardName3" id="awardName3"><br>
+                                                        <label for="awardTime3">获奖时间及颁发单位：</label>
+                                                        <input type="text" name="awardTime3" id="awardTime3">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="selects">
+                                            <label>指导老师人数：</label>
+                                            <select id="tutorNumber" name="tutorNumber" style="height: 35px">
+                                                <option value="1" name="tutorNumber" selected="selected">1人
+                                                </option>
+                                                <option value="2" name="tutorNumber">2人</option>
+                                            </select>
+                                        </div>
+                                        <div id="onetutor">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td rowspan="4" style="vertical-align: middle">指导老师信息</td>
+                                                    <td colspan="2" style="vertical-align: middle">姓名</td>
+                                                    <td colspan="2" style="vertical-align: middle">学院</td>
+                                                    <td colspan="2" style="vertical-align: middle">职务</td>
+                                                    <td colspan="2" style="vertical-align: middle">联系电话</td>
+                                                    <td colspan="2" style="vertical-align: middle">学位</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="name">
+                                                    </td>
+
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="belongCollege">
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="post">
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="phone">
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="degree">
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div id="twotutor" style="display: none;">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <td rowspan="2" style="vertical-align: middle">指导老师一信息</td>
+                                                    <td colspan="2" style="vertical-align: middle">姓名</td>
+                                                    <td colspan="2" style="vertical-align: middle">学院</td>
+                                                    <td colspan="2" style="vertical-align: middle">职务</td>
+                                                    <td colspan="2" style="vertical-align: middle">联系电话</td>
+                                                    <td colspan="2" style="vertical-align: middle">学位</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="name">
+                                                    </td>
+
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="belongCollege">
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="post">
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="phone">
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="degree">
+                                                    </td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td rowspan="2" style="vertical-align: middle">指导老师二信息</td>
+                                                    <td colspan="2" style="vertical-align: middle">姓名</td>
+                                                    <td colspan="2" style="vertical-align: middle">学院</td>
+                                                    <td colspan="2" style="vertical-align: middle">职务</td>
+                                                    <td colspan="2" style="vertical-align: middle">联系电话</td>
+                                                    <td colspan="2" style="vertical-align: middle">学位</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="name">
+                                                    </td>
+
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="belongCollege">
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="post">
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="phone">
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <input class="form-control inputcls required"
+                                                               size="16" type="text" name="degree">
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+
+
+                                        <label for="introduce">项目简介:</label>
+                                        <textarea class="form-control input-sm required" type="text" name="introduce" id="introduce"></textarea>
+                                        <label for="background">项目背景:</label>
+                                        <textarea class="form-control input-sm required" type="text" name="background" id="background"></textarea>
+                                        <label for="marketAnalysis">项目市场分析:</label>
+                                        <textarea class="form-control input-sm required" type="text" name="marketAnalysis" id="marketAnalysis"></textarea>
+
+                                        <label for="technicalFactor">项目技术因素:</label>
+                                        <textarea class="form-control input-sm required" type="text"name="technicalFactor" id="technicalFactor"></textarea>
+                                        <label for="businessModel">商业模式:</label>
+                                        <textarea class="form-control input-sm required" type="text" name="businessModel" id="businessModel"></textarea>
+                                        <label for="financialAnalysis">财务分析:</label>
+                                        <textarea class="form-control input-sm required" type="text"name="financialAnalysis" id="financialAnalysis"></textarea>
+                                        <label for="riskAndConstraint">风险预测及制约因素:</label>
+                                        <textarea class="form-control input-sm required" type="text" name="riskAndConstraint" id="riskAndConstraint"></textarea>
+                                        <label for="planningAndVision">发展规划与创业愿景:</label>
+                                        <textarea class="form-control input-sm required" type="text" name="planningAndVision" id="planningAndVision"></textarea>
+
+                                        <label for="fundAndBudget">项目立项经费使用预算:</label>
+                                        <textarea class="form-control input-sm required" type="text" name="fundAndBudget" id="fundAndBudget"></textarea>
+                                        <label for="expectedResult">项目预期成果:</label>
+                                        <textarea class="form-control input-sm required" type="text" name="expectedResult" id="expectedResult"></textarea>
+                                        <label>申请人承诺:</label>
+                                        <textarea class="form-control input-sm required" type="text" placeholder="我保证上述填报内容的真实性。如果获得资助， 我与本项目组成员将负责。 "></textarea>
+                                        <label class="pull-right"> 签名：<input class="required" type="text" style="height: 25px;"></label>
+                                        <label class="pull-right"> 时间：<input class="required" type="date"></label>
+
+
+                                    </div>
+                                        <div class="box-footer">
+                                            <button type="submit" class="btn btn-info pull-right ">完成</button>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <!-- /.box-body -->
+
+
+
+                            <!-- /.box-footer -->
+                            </form>
+                        </div>
+                    </li>
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+
+                    <!-- END timeline item -->
+                    <!-- timeline time label -->
+                    <li class="time-label">
+                        <i class="fa  bg-aqua">3</i>
+                        <div class="timeline-item">
+
+                            <h3 class="timeline-header no-border"><a href="#">完成</a></h3>
+                        </div>
+
+                    </li>
+
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+
+                    <!-- END timeline item -->
+                    <!-- timeline item -->
+
+                    <!-- END timeline item -->
+
+                </ul>
+            </div>
+            <!--------------------------
+              | Your Page Content Here |
+              -------------------------->
+
+        </section>
+
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <div>
+
+    </div>
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            Anything you want
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    </footer>
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Create the tabs -->
+        <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+            <li class="active"><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+            <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!-- Home tab content -->
+            <div class="tab-pane active" id="control-sidebar-home-tab">
+                <h3 class="control-sidebar-heading">Recent Activity</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:;">
+                            <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+                            <div class="menu-info">
+                                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                                <p>Will be 23 on April 24th</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+                <h3 class="control-sidebar-heading">Tasks Progress</h3>
+                <ul class="control-sidebar-menu">
+                    <li>
+                        <a href="javascript:;">
+                            <h4 class="control-sidebar-subheading">
+                                Custom Template Design
+                                <span class="pull-right-container">
+                    <span class="label label-danger pull-right">70%</span>
+                  </span>
+                            </h4>
+
+                            <div class="progress progress-xxs">
+                                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <!-- /.control-sidebar-menu -->
+
+            </div>
+            <!-- /.tab-pane -->
+            <!-- Stats tab content -->
+            <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+            <!-- /.tab-pane -->
+            <!-- Settings tab content -->
+            <div class="tab-pane" id="control-sidebar-settings-tab">
+                <form method="post">
+                    <h3 class="control-sidebar-heading">General Settings</h3>
+
+                    <div class="form-group">
+                        <label class="control-sidebar-subheading">
+                            Report panel usage
+                            <input type="checkbox" class="pull-right" checked>
+                        </label>
+
+                        <p>
+                            Some information about this general settings option
+                        </p>
+                    </div>
+                    <!-- /.form-group -->
+                </form>
+            </div>
+            <!-- /.tab-pane -->
+        </div>
+    </aside>
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
+    immediately after the control sidebar -->
+    <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../dist/js/adminlte.min.js"></script>
+<script src="../js/baoming.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+
+</body>
+</html>

@@ -36,19 +36,18 @@
         <result column="university_opinion_handing_time" property="universityOpinionHandingTime" />
         <result column="university_post_opinion_handing_time" property="universityPostOpinionHandingTime" />
         <result column="status" property="status" />
+        <result column="team_id" property="teamId" />
         <result column="change_time" property="changeTime" />
         <result column="support_sum" property="supportSum" />
         <result column="is_enable" property="isEnable" />
         <result column="subject_code" property="subjectCode" />
-        <result column="award_id" property="awardId" />
-        <result column="qq" property="qq" />
         <result column="deadline_time" property="deadlineTime" />
         <result column="create_time" property="createTime" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, match_id, name, classification, grade, introduce, background, advantage, market_analysis, technical_factor, business_model, financial_analysis, risk_and_constraint, planning_and_vision, fund_and_budget, expected_result, college_opinion_detail, college_post_opinion_detail, college_opinion_handler, college_post_opinion_handler, college_opinion_handler_time, college_post_opinion_handler_time, applicant_promise_detail, applicant_promise_handler, applicant_promist_handing_time, university_opinion_detail, university_post_opinion_detail, university_opinion_handler, university_post_opinion_handler, university_opinion_handing_time, university_post_opinion_handing_time, status, change_time, support_sum, is_enable, subject_code, award_id, qq, deadline_time, create_time
+        id, match_id, name, classification, grade, introduce, background, advantage, market_analysis, technical_factor, business_model, financial_analysis, risk_and_constraint, planning_and_vision, fund_and_budget, expected_result, college_opinion_detail, college_post_opinion_detail, college_opinion_handler, college_post_opinion_handler, college_opinion_handler_time, college_post_opinion_handler_time, applicant_promise_detail, applicant_promise_handler, applicant_promist_handing_time, university_opinion_detail, university_post_opinion_detail, university_opinion_handler, university_post_opinion_handler, university_opinion_handing_time, university_post_opinion_handing_time, status, team_id, change_time, support_sum, is_enable, subject_code, deadline_time, create_time
     </sql>
 
 </mapper>
